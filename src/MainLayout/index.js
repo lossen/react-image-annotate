@@ -126,6 +126,7 @@ export const MainLayout = ({
       allowedArea={state.allowedArea}
       modifyingAllowedArea={state.selectedTool === "modify-allowed-area"}
       regionClsList={state.regionClsList}
+      regionName={state.regionName}
       regionTagList={state.regionTagList}
       regions={
         state.annotationType === "image"
@@ -238,15 +239,15 @@ export const MainLayout = ({
               ) : null,
             ].filter(Boolean)}
             headerItems={[
-              { name: "Prev" },
-              { name: "Next" },
+              !state.disableNavs && { name: "Prev" },
+              !state.disableNavs && { name: "Next" },
               state.annotationType !== "video"
                 ? null
                 : !state.videoPlaying
                 ? { name: "Play" }
                 : { name: "Pause" },
               !nextImageHasRegions && activeImage.regions && { name: "Clone" },
-              { name: "Settings" },
+              !state.disableSettings && { name: "Settings" },
               state.fullScreen ? { name: "Window" } : { name: "Fullscreen" },
               { name: "Save" },
             ].filter(Boolean)}
@@ -271,16 +272,17 @@ export const MainLayout = ({
               {
                 name: "zoom",
                 helperText: "Zoom In/Out",
-                alwaysShowing: true,
+                alwaysShowing: false,
               },
               {
                 name: "show-tags",
                 helperText: "Show / Hide Tags",
-                alwaysShowing: true,
+                alwaysShowing: false,
               },
               {
                 name: "create-point",
                 helperText: "Add Point",
+                alwaysShowing: false,
               },
               {
                 name: "create-box",
@@ -289,6 +291,7 @@ export const MainLayout = ({
               {
                 name: "create-polygon",
                 helperText: "Add Polygon",
+                alwaysShowing: false,
               },
               {
                 name: "create-expanding-line",
@@ -300,7 +303,7 @@ export const MainLayout = ({
               },
               state.fullImageSegmentationMode && {
                 name: "show-mask",
-                alwaysShowing: true,
+                alwaysShowing: false,
                 helperText: "Show / Hide Mask",
               },
               {
@@ -312,7 +315,7 @@ export const MainLayout = ({
               .filter(
                 (a) => a.alwaysShowing || state.enabledTools.includes(a.name)
               )}
-            rightSidebarItems={[
+            rightSidebarItems={state.disableRightSidebar ? [] : [
               debugModeOn && (
                 <DebugBox state={debugModeOn} lastAction={state.lastAction} />
               ),
