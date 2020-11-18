@@ -25,9 +25,9 @@ export default () => {
               changeLastOutput(output)
               changeAnnotatorOpen(false)
             }}
-            // onCloseRegion={(region) => {
-            //   console.log(region,'test onCLose')
-            // }}
+            onCloseRegion={(region) => {
+              console.log(region,'test onCLose')
+            }}
             showTags={false}
           />
         </ErrorBoundaryDialog>

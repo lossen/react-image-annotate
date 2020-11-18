@@ -127,6 +127,13 @@ export default (state: MainLayoutState, action: Action) => {
       const regionIndex = getRegionIndex(action.region)
       if (regionIndex === null) return state
       const oldRegion = activeImage.regions[regionIndex]
+      if (oldRegion.regionName !== action.region.regionName) {
+        console.log(action.region,'action.region')
+        // return setIn(state,[...pathToActiveImage, "regions", regionIndex], {
+        //   // regionId: box.id,
+        //   regionName: action.region.regionName,
+        // })
+      }
       if (oldRegion.cls !== action.region.cls) {
         state = saveToHistory(state, "Change Region Classification")
         const clsIndex = state.regionClsList.indexOf(action.region.cls)

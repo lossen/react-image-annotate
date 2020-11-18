@@ -25,6 +25,7 @@ type Props = {
   allowedTags?: Array<string>,
   cls?: string,
   tags?: Array<string>,
+  regionName?: string,
   onDelete: (Region) => null,
   onChange: (Region) => null,
   onCloseRegionEdit: (Region) => null,
@@ -50,9 +51,11 @@ export const RegionLabel = ({
   onCloseRegion,
   onOpen,
   onRegionClassAdded,
+  regionName
 }: Props) => {
   const classes = useStyles()
 
+  console.log(regionName,'regionName')
   return (
     <Paper
       onClick={() => (!editing ? onOpen(region) : null)}
@@ -150,6 +153,11 @@ export const RegionLabel = ({
               />
             </div>
           )}
+          <input type="text" onChange={(name) =>
+              onChange({
+                regionName: name,
+              })
+          }/>
           {onCloseRegion && (
             <div style={{ marginTop: 4, display: "flex" }}>
               <div style={{ flexGrow: 1 }} />
