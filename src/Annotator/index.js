@@ -31,6 +31,7 @@ type Props = {
   imageClsList?: Array<string>,
   enabledTools?: Array<string>,
   disableNavs?: boolean,
+  onCloseRegion?: (MainLayoutState) => any,
   disableSettings?: boolean,
   disableRightSidebar?: boolean,
   selectedTool?: String,
@@ -54,6 +55,7 @@ type Props = {
 
 export const Annotator = ({
   images,
+  onCloseRegion,
   allowedArea,
   selectedImage = images && images.length > 0 ? 0 : undefined,
   showPointDistances,
@@ -124,6 +126,7 @@ export const Annotator = ({
       disableSettings,
       disableRightSidebar,
       disableNavs,
+      onCloseRegion,
       history: [],
       videoName,
       keypointDefinitions,

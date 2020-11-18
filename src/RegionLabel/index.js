@@ -27,9 +27,16 @@ type Props = {
   tags?: Array<string>,
   onDelete: (Region) => null,
   onChange: (Region) => null,
+  onCloseRegionEdit: (Region) => null,
+  onCloseRegion: (Region) => null,
   onClose: (Region) => null,
   onOpen: (Region) => null,
   onRegionClassAdded: () => {},
+}
+
+function handleOnCLose(region,onCloseRegion,onClose) {
+  onClose && onClose(region);
+  onCloseRegion && onCloseRegion(region);
 }
 
 export const RegionLabel = ({
@@ -39,7 +46,8 @@ export const RegionLabel = ({
   allowedTags,
   onDelete,
   onChange,
-  onClose,
+  onClose,//from where goes this function?
+  onCloseRegion,
   onOpen,
   onRegionClassAdded,
 }: Props) => {
@@ -142,11 +150,11 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          {onClose && (
+          {onCloseRegion && (
             <div style={{ marginTop: 4, display: "flex" }}>
               <div style={{ flexGrow: 1 }} />
               <Button
-                onClick={() => onClose(region)}
+                onClick={() => handleOnCLose(region,onCloseRegion,onClose)}
                 size="small"
                 variant="contained"
                 color="primary"

@@ -62,6 +62,7 @@ export const MainLayout = ({
   alwaysShowPrevButton = false,
   RegionEditLabel,
   onRegionClassAdded,
+  onCloseRegion
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -152,6 +153,7 @@ export const MainLayout = ({
       onMouseDown={action("MOUSE_DOWN")}
       onMouseUp={action("MOUSE_UP")}
       onChangeRegion={action("CHANGE_REGION", "region")}
+      onCloseRegion={state.onCloseRegion}
       onBeginRegionEdit={action("OPEN_REGION_EDITOR", "region")}
       onCloseRegionEdit={action("CLOSE_REGION_EDITOR", "region")}
       onDeleteRegion={action("DELETE_REGION", "region")}
@@ -331,12 +333,12 @@ export const MainLayout = ({
                   expandedByDefault
                 />
               ),
-              // (state.images?.length || 0) > 1 && (
-              //   <ImageSelector
-              //     onSelect={action("SELECT_REGION", "region")}
-              //     images={state.images}
-              //   />
-              // ),
+              (state.images?.length || 0) > 1 && (
+                <ImageSelector
+                  onSelect={action("SELECT_REGION", "region")}
+                  images={state.images}
+                />
+              ),
               <RegionSelector
                 regions={activeImage ? activeImage.regions : emptyArr}
                 onSelectRegion={action("SELECT_REGION", "region")}

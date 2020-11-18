@@ -124,6 +124,7 @@ export const ImageCanvas = ({
   autoSegmentationOptions,
   onImageOrVideoLoaded,
   onChangeRegion,
+  onCloseRegion,
   onBeginRegionEdit,
   onCloseRegionEdit,
   onBeginBoxTransform,
@@ -402,6 +403,7 @@ export const ImageCanvas = ({
             editing
             region={highlightedRegion}
             imageSrc={imageSrc}
+            onCloseRegion={onCloseRegion}
           />
         </div>
       )}
