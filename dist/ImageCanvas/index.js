@@ -99,7 +99,11 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       zoomOnAllowedArea = _ref2$zoomOnAllowedAr === void 0 ? true : _ref2$zoomOnAllowedAr,
       _ref2$modifyingAllowe = _ref2.modifyingAllowedArea,
       modifyingAllowedArea = _ref2$modifyingAllowe === void 0 ? false : _ref2$modifyingAllowe,
-      keypointDefinitions = _ref2.keypointDefinitions;
+      keypointDefinitions = _ref2.keypointDefinitions,
+      customCloseRegion = _ref2.customCloseRegion,
+      disableClasses = _ref2.disableClasses,
+      disableTags = _ref2.disableTags,
+      disableRegionType = _ref2.disableRegionType;
   var classes = useStyles();
   var canvasEl = useRef(null);
   var layoutParams = useRef({});
@@ -311,7 +315,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       w: allowedArea.w,
       h: allowedArea.h,
       visible: true,
-      color: "#ff0"
+      color: "#ff0",
+      regionName: ''
     }],
     mouseEvents: mouseEvents,
     projectRegionBox: projectRegionBox,
@@ -342,7 +347,11 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     layoutParams: layoutParams,
     imageSrc: imageSrc,
     RegionEditLabel: RegionEditLabel,
-    onRegionClassAdded: onRegionClassAdded
+    onRegionClassAdded: onRegionClassAdded,
+    customCloseRegion: customCloseRegion,
+    disableClasses: disableClasses,
+    disableTags: disableTags,
+    disableRegionType: disableRegionType
   })), !showTags && highlightedRegion && /*#__PURE__*/React.createElement("div", {
     key: "topLeftTag",
     className: classes.fixedRegionLabel
@@ -354,7 +363,11 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     onDelete: onDeleteRegion,
     editing: true,
     region: highlightedRegion,
-    imageSrc: imageSrc
+    imageSrc: imageSrc,
+    customCloseRegion: customCloseRegion,
+    disableClasses: disableClasses,
+    disableTags: disableTags,
+    disableRegionType: disableRegionType
   })), zoomWithPrimary && zoomBox !== null && /*#__PURE__*/React.createElement("div", {
     key: "zoomBox",
     style: {

@@ -12,17 +12,29 @@ import UndoIcon from "@material-ui/icons/Undo";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
 import { asMutable } from "seamless-immutable";
+import TextField from "@material-ui/core/TextField";
 var useStyles = makeStyles(styles);
+
+function handleCloseRegionEditor(onClose, region, customCloseRegion) {
+  onClose(region);
+  customCloseRegion(region);
+}
+
 export var RegionLabel = function RegionLabel(_ref) {
   var region = _ref.region,
       editing = _ref.editing,
       allowedClasses = _ref.allowedClasses,
+      disableClasses = _ref.disableClasses,
+      disableTags = _ref.disableTags,
+      disableRegionType = _ref.disableRegionType,
       allowedTags = _ref.allowedTags,
       onDelete = _ref.onDelete,
       _onChange = _ref.onChange,
       onClose = _ref.onClose,
       onOpen = _ref.onOpen,
-      onRegionClassAdded = _ref.onRegionClassAdded;
+      onRegionClassAdded = _ref.onRegionClassAdded,
+      customCloseRegion = _ref.customCloseRegion,
+      regionName = _ref.regionName;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
@@ -54,7 +66,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       display: "flex",
       flexDirection: "row"
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, !disableRegionType && /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       backgroundColor: region.color || "#888",
@@ -87,7 +99,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       width: 16,
       height: 16
     }
-  }))), (allowedClasses || []).length > 0 && /*#__PURE__*/React.createElement("div", {
+  }))), !disableClasses && (allowedClasses || []).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 6
     }
@@ -112,7 +124,7 @@ export var RegionLabel = function RegionLabel(_ref) {
         label: c
       };
     }))
-  })), (allowedTags || []).length > 0 && /*#__PURE__*/React.createElement("div", {
+  })), !disableTags && (allowedTags || []).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 4
     }
@@ -138,7 +150,16 @@ export var RegionLabel = function RegionLabel(_ref) {
         label: c
       };
     }))
-  })), onClose && /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    autoFocus: true,
+    value: region.regionName,
+    onChange: function onChange(newName) {
+      return _onChange(_objectSpread({}, region, {
+        regionName: newName.target.value
+      }));
+    }
+  }), onClose && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 4,
       display: "flex"
@@ -149,7 +170,7 @@ export var RegionLabel = function RegionLabel(_ref) {
     }
   }), /*#__PURE__*/React.createElement(Button, {
     onClick: function onClick() {
-      return onClose(region);
+      return handleCloseRegionEditor(onClose, region, customCloseRegion);
     },
     size: "small",
     variant: "contained",

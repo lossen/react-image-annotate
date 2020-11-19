@@ -32,7 +32,11 @@ export var RegionTags = function RegionTags(_ref) {
       layoutParams = _ref.layoutParams,
       imageSrc = _ref.imageSrc,
       RegionEditLabel = _ref.RegionEditLabel,
-      onRegionClassAdded = _ref.onRegionClassAdded;
+      onRegionClassAdded = _ref.onRegionClassAdded,
+      disableClasses = _ref.disableClasses,
+      disableTags = _ref.disableTags,
+      customCloseRegion = _ref.customCloseRegion,
+      disableRegionType = _ref.disableRegionType;
   var RegionLabel = RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel;
   return regions.filter(function (r) {
     return r.visible || r.visible === undefined;
@@ -129,7 +133,11 @@ export var RegionTags = function RegionTags(_ref) {
       region: region,
       regions: regions,
       imageSrc: imageSrc,
-      onRegionClassAdded: onRegionClassAdded
+      onRegionClassAdded: onRegionClassAdded,
+      customCloseRegion: customCloseRegion,
+      disableClasses: disableClasses,
+      disableTags: disableTags,
+      disableRegionType: disableRegionType
     })));
   });
 };

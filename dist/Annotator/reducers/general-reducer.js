@@ -128,7 +128,12 @@ export default (function (state, action) {
       {
         var regionIndex = getRegionIndex(action.region);
         if (regionIndex === null) return state;
-        var oldRegion = activeImage.regions[regionIndex];
+        var oldRegion = activeImage.regions[regionIndex]; // if (oldRegion.regionName !== action.region.regionName) {
+        //   state = setIn(
+        //       state, ["regionName"],
+        //       action.region.regionName
+        //   )
+        // }
 
         if (oldRegion.cls !== action.region.cls) {
           state = saveToHistory(state, "Change Region Classification");
@@ -595,7 +600,8 @@ export default (function (state, action) {
                 editingLabels: false,
                 color: defaultRegionColor,
                 cls: defaultRegionCls,
-                id: getRandomId()
+                id: getRandomId(),
+                regionName: ''
               };
               state = setIn(state, ["mode"], {
                 mode: "RESIZE_BOX",

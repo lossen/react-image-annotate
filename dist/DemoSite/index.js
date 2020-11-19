@@ -29,7 +29,13 @@ export default (function () {
       delete output["lastAction"];
       changeLastOutput(output);
       changeAnnotatorOpen(false);
-    }
+    } // customCloseRegion={(region) => {
+    //   console.log(region,'test onCLose')
+    // }}
+    ,
+    disableClasses: true,
+    disableTags: true,
+    disableRegionType: true
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {
