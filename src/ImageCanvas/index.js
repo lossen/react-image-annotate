@@ -57,6 +57,8 @@ type Props = {
   showCrosshairs?: boolean,
   showMask?: boolean,
   showHighlightBox?: boolean,
+  disableClasses?: boolean,
+  disableTags?: boolean,
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   regionClsList?: Array<string>,
@@ -142,6 +144,8 @@ export const ImageCanvas = ({
   modifyingAllowedArea = false,
   keypointDefinitions,
   customCloseRegion,
+  disableClasses,
+  disableTags,
 }: Props) => {
   const classes = useStyles()
 
@@ -392,6 +396,8 @@ export const ImageCanvas = ({
             RegionEditLabel={RegionEditLabel}
             onRegionClassAdded={onRegionClassAdded}
             customCloseRegion={customCloseRegion}
+            disableClasses={disableClasses}
+            disableTags={disableTags}
           />
         </PreventScrollToParents>
       )}
@@ -407,6 +413,8 @@ export const ImageCanvas = ({
             region={highlightedRegion}
             imageSrc={imageSrc}
             customCloseRegion={customCloseRegion}
+            disableClasses={disableClasses}
+            disableTags={disableTags}
           />
         </div>
       )}

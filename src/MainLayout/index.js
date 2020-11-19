@@ -142,6 +142,8 @@ export const MainLayout = ({
       dragWithPrimary={state.selectedTool === "pan"}
       zoomWithPrimary={state.selectedTool === "zoom"}
       showPointDistances={state.showPointDistances}
+      disableClasses={state.disableClasses}
+      disableTags={state.disableTags}
       videoTime={
         state.annotationType === "image"
           ? state.selectedImageFrameTime

@@ -22,6 +22,8 @@ type Props = {
   region: Region,
   editing?: boolean,
   allowedClasses?: Array<string>,
+  disableClasses?: boolean,
+  disableTags?: boolean,
   allowedTags?: Array<string>,
   cls?: string,
   tags?: Array<string>,
@@ -41,6 +43,8 @@ export const RegionLabel = ({
   region,
   editing,
   allowedClasses,
+  disableClasses,
+  disableTags,
   allowedTags,
   onDelete,
   onChange,
@@ -50,6 +54,8 @@ export const RegionLabel = ({
   customCloseRegion
 }: Props) => {
   const classes = useStyles()
+
+  console.log(disableClasses,'disableClasses')
 
   return (
     <Paper
@@ -108,7 +114,7 @@ export const RegionLabel = ({
               <TrashIcon style={{ marginTop: -8, width: 16, height: 16 }} />
             </IconButton>
           </div>
-          {(allowedClasses || []).length > 0 && (
+          {!disableClasses && (allowedClasses || []).length > 0 && (
             <div style={{ marginTop: 6 }}>
               <CreatableSelect
                 placeholder="Classification"
@@ -130,7 +136,7 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          {(allowedTags || []).length > 0 && (
+          {!disableTags && (allowedTags || []).length > 0 && (
             <div style={{ marginTop: 4 }}>
               <Select
                 onChange={(newTags) =>

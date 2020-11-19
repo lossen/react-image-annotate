@@ -27,6 +27,8 @@ export const RegionTags = ({
   imageSrc,
   RegionEditLabel,
   onRegionClassAdded,
+    disableClasses,
+    disableTags,
     customCloseRegion
 }) => {
   const RegionLabel =
@@ -120,6 +122,8 @@ export const RegionTags = ({
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               customCloseRegion={customCloseRegion}
+              disableClasses={disableClasses}
+              disableTags={disableTags}
             />
           </div>
         </div>

@@ -28,6 +28,8 @@ export default () => {
             customCloseRegion={(region) => {
               console.log(region,'test onCLose')
             }}
+            disableClasses={true}
+            disableTags={true}
           />
         </ErrorBoundaryDialog>
       ) : (
