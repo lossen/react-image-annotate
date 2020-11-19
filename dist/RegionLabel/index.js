@@ -17,12 +17,12 @@ var useStyles = makeStyles(styles);
 
 function handleCloseRegionEditor(onClose, region, customCloseRegion) {
   onClose(region);
-  customCloseRegion(region.id);
+  customCloseRegion(region);
 }
 
 function handleDeleteRegionEditor(onDelete, region, customDeleteRegion) {
   onDelete(region);
-  customDeleteRegion(region);
+  customDeleteRegion(region.id);
 }
 
 export var RegionLabel = function RegionLabel(_ref) {

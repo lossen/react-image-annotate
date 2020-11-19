@@ -39,12 +39,12 @@ type Props = {
 
 function handleCloseRegionEditor(onClose,region,customCloseRegion) {
   onClose(region)
-  customCloseRegion(region.id)
+  customCloseRegion(region)
 }
 
 function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
   onDelete(region)
-  customDeleteRegion(region)
+  customDeleteRegion(region.id)
 }
 
 export const RegionLabel = ({
