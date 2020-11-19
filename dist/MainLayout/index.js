@@ -144,6 +144,7 @@ export var MainLayout = function MainLayout(_ref2) {
     keypointDefinitions: state.keypointDefinitions,
     disableRegionType: state.disableRegionType,
     customCloseRegion: state.customCloseRegion,
+    customDeleteRegion: state.customDeleteRegion,
     onMouseMove: action("MOUSE_MOVE"),
     onMouseDown: action("MOUSE_DOWN"),
     onMouseUp: action("MOUSE_UP"),

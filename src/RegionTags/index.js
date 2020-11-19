@@ -30,6 +30,7 @@ export const RegionTags = ({
     disableClasses,
     disableTags,
     customCloseRegion,
+    customDeleteRegion,
     disableRegionType
 }) => {
   const RegionLabel =
@@ -123,6 +124,7 @@ export const RegionTags = ({
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               customCloseRegion={customCloseRegion}
+              customDeleteRegion={customDeleteRegion}
               disableClasses={disableClasses}
               disableTags={disableTags}
               disableRegionType={disableRegionType}

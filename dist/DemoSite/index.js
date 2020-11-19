@@ -29,10 +29,13 @@ export default (function () {
       delete output["lastAction"];
       changeLastOutput(output);
       changeAnnotatorOpen(false);
-    } // customCloseRegion={(region) => {
-    //   console.log(region,'test onCLose')
-    // }}
-    ,
+    },
+    customCloseRegion: function customCloseRegion(region) {
+      console.log(region, 'test customCloseRegion');
+    },
+    customDeleteRegion: function customDeleteRegion(region) {
+      console.log(region, 'test customDeleteRegion');
+    },
     disableClasses: true,
     disableTags: true,
     disableRegionType: true

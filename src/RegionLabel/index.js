@@ -39,7 +39,12 @@ type Props = {
 
 function handleCloseRegionEditor(onClose,region,customCloseRegion) {
   onClose(region)
-  customCloseRegion(region)
+  customCloseRegion(region.id)
+}
+
+function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
+  onDelete(region)
+  customDeleteRegion(region)
 }
 
 export const RegionLabel = ({
@@ -56,6 +61,7 @@ export const RegionLabel = ({
   onOpen,
   onRegionClassAdded,
   customCloseRegion,
+  customDeleteRegion,
   regionName
 }: Props) => {
   const classes = useStyles()
@@ -108,7 +114,7 @@ export const RegionLabel = ({
             </div>}
             <div style={{ flexGrow: 1 }} />
             <IconButton
-              onClick={() => onDelete(region)}
+              onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
               tabIndex={-1}
               style={{ width: 22, height: 22 }}
               size="small"

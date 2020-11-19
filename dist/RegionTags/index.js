@@ -36,6 +36,7 @@ export var RegionTags = function RegionTags(_ref) {
       disableClasses = _ref.disableClasses,
       disableTags = _ref.disableTags,
       customCloseRegion = _ref.customCloseRegion,
+      customDeleteRegion = _ref.customDeleteRegion,
       disableRegionType = _ref.disableRegionType;
   var RegionLabel = RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel;
   return regions.filter(function (r) {
@@ -135,6 +136,7 @@ export var RegionTags = function RegionTags(_ref) {
       imageSrc: imageSrc,
       onRegionClassAdded: onRegionClassAdded,
       customCloseRegion: customCloseRegion,
+      customDeleteRegion: customDeleteRegion,
       disableClasses: disableClasses,
       disableTags: disableTags,
       disableRegionType: disableRegionType

@@ -25,9 +25,12 @@ export default () => {
               changeLastOutput(output)
               changeAnnotatorOpen(false)
             }}
-            // customCloseRegion={(region) => {
-            //   console.log(region,'test onCLose')
-            // }}
+            customCloseRegion={(region) => {
+              console.log(region,'test customCloseRegion')
+            }}
+            customDeleteRegion={(region) => {
+              console.log(region,'test customDeleteRegion')
+            }}
             disableClasses={true}
             disableTags={true}
             disableRegionType={true}

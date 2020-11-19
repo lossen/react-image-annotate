@@ -101,6 +101,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       modifyingAllowedArea = _ref2$modifyingAllowe === void 0 ? false : _ref2$modifyingAllowe,
       keypointDefinitions = _ref2.keypointDefinitions,
       customCloseRegion = _ref2.customCloseRegion,
+      customDeleteRegion = _ref2.customDeleteRegion,
       disableClasses = _ref2.disableClasses,
       disableTags = _ref2.disableTags,
       disableRegionType = _ref2.disableRegionType;
@@ -349,6 +350,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     RegionEditLabel: RegionEditLabel,
     onRegionClassAdded: onRegionClassAdded,
     customCloseRegion: customCloseRegion,
+    customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,
     disableTags: disableTags,
     disableRegionType: disableRegionType
@@ -365,6 +367,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     region: highlightedRegion,
     imageSrc: imageSrc,
     customCloseRegion: customCloseRegion,
+    customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,
     disableTags: disableTags,
     disableRegionType: disableRegionType

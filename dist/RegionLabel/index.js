@@ -17,7 +17,12 @@ var useStyles = makeStyles(styles);
 
 function handleCloseRegionEditor(onClose, region, customCloseRegion) {
   onClose(region);
-  customCloseRegion(region);
+  customCloseRegion(region.id);
+}
+
+function handleDeleteRegionEditor(onDelete, region, customDeleteRegion) {
+  onDelete(region);
+  customDeleteRegion(region);
 }
 
 export var RegionLabel = function RegionLabel(_ref) {
@@ -34,6 +39,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       onOpen = _ref.onOpen,
       onRegionClassAdded = _ref.onRegionClassAdded,
       customCloseRegion = _ref.customCloseRegion,
+      customDeleteRegion = _ref.customDeleteRegion,
       regionName = _ref.regionName;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
@@ -84,7 +90,7 @@ export var RegionLabel = function RegionLabel(_ref) {
     }
   }), /*#__PURE__*/React.createElement(IconButton, {
     onClick: function onClick() {
-      return onDelete(region);
+      return handleDeleteRegionEditor(onDelete, region, customDeleteRegion);
     },
     tabIndex: -1,
     style: {

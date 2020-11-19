@@ -56,6 +56,7 @@ export var Annotator = function Annotator(_ref) {
       videoName = _ref.videoName,
       onExit = _ref.onExit,
       customCloseRegion = _ref.customCloseRegion,
+      customDeleteRegion = _ref.customDeleteRegion,
       onNextImage = _ref.onNextImage,
       onPrevImage = _ref.onPrevImage,
       keypointDefinitions = _ref.keypointDefinitions,
@@ -99,6 +100,7 @@ export var Annotator = function Annotator(_ref) {
     disableTags: disableTags,
     disableRegionType: disableRegionType,
     customCloseRegion: customCloseRegion,
+    customDeleteRegion: customDeleteRegion,
     history: [],
     videoName: videoName,
     keypointDefinitions: keypointDefinitions
