@@ -25,6 +25,9 @@ export default () => {
               changeLastOutput(output)
               changeAnnotatorOpen(false)
             }}
+            customCloseRegion={(region) => {
+              console.log(region,'test onCLose')
+            }}
           />
         </ErrorBoundaryDialog>
       ) : (

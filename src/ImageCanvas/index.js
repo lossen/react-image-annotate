@@ -35,6 +35,7 @@ import VideoOrImageCanvasBackground from "../VideoOrImageCanvasBackground"
 import useEventCallback from "use-event-callback"
 import RegionShapes from "../RegionShapes"
 import useWasdMode from "./use-wasd-mode"
+import {func} from "prop-types";
 
 const useStyles = makeStyles(styles)
 
@@ -44,6 +45,7 @@ type Props = {
   videoSrc?: string,
   videoTime?: number,
   keypointDefinitions?: KeypointDefinitions,
+  customCloseRegion?: customCloseRegion,
   onMouseMove?: ({ x: number, y: number }) => any,
   onMouseDown?: ({ x: number, y: number }) => any,
   onMouseUp?: ({ x: number, y: number }) => any,
@@ -139,6 +141,7 @@ export const ImageCanvas = ({
   zoomOnAllowedArea = true,
   modifyingAllowedArea = false,
   keypointDefinitions,
+  customCloseRegion,
 }: Props) => {
   const classes = useStyles()
 
@@ -388,6 +391,7 @@ export const ImageCanvas = ({
             imageSrc={imageSrc}
             RegionEditLabel={RegionEditLabel}
             onRegionClassAdded={onRegionClassAdded}
+            customCloseRegion={customCloseRegion}
           />
         </PreventScrollToParents>
       )}
@@ -402,6 +406,7 @@ export const ImageCanvas = ({
             editing
             region={highlightedRegion}
             imageSrc={imageSrc}
+            customCloseRegion={customCloseRegion}
           />
         </div>
       )}

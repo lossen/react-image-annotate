@@ -32,6 +32,11 @@ type Props = {
   onRegionClassAdded: () => {},
 }
 
+function handleCloseRegionEditor(onClose,region,customCloseRegion) {
+  onClose(region)
+  customCloseRegion(region)
+}
+
 export const RegionLabel = ({
   region,
   editing,
@@ -42,6 +47,7 @@ export const RegionLabel = ({
   onClose,
   onOpen,
   onRegionClassAdded,
+  customCloseRegion
 }: Props) => {
   const classes = useStyles()
 
@@ -146,7 +152,7 @@ export const RegionLabel = ({
             <div style={{ marginTop: 4, display: "flex" }}>
               <div style={{ flexGrow: 1 }} />
               <Button
-                onClick={() => onClose(region)}
+                onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion)}
                 size="small"
                 variant="contained"
                 color="primary"

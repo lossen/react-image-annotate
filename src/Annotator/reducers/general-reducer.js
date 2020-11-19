@@ -15,6 +15,7 @@ import getLandmarksWithTransform from "../../utils/get-landmarks-with-transform"
 const getRandomId = () => Math.random().toString().split(".")[1]
 
 export default (state: MainLayoutState, action: Action) => {
+  console.log(action,'action')
   if (
     state.allowedArea &&
     state.selectedTool !== "modify-allowed-area" &&

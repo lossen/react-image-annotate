@@ -148,6 +148,7 @@ export const MainLayout = ({
           : state.currentVideoTime
       }
       keypointDefinitions={state.keypointDefinitions}
+      customCloseRegion={state.customCloseRegion}
       onMouseMove={action("MOUSE_MOVE")}
       onMouseDown={action("MOUSE_DOWN")}
       onMouseUp={action("MOUSE_UP")}
