@@ -25,11 +25,12 @@ export default () => {
               changeLastOutput(output)
               changeAnnotatorOpen(false)
             }}
-            customCloseRegion={(region) => {
-              console.log(region,'test onCLose')
-            }}
+            // customCloseRegion={(region) => {
+            //   console.log(region,'test onCLose')
+            // }}
             disableClasses={true}
             disableTags={true}
+            disableRegionType={true}
           />
         </ErrorBoundaryDialog>
       ) : (

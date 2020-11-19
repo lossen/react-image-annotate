@@ -9,6 +9,7 @@ export type BaseRegion = {
   editingLabels?: boolean,
   highlighted?: boolean,
   tags?: Array<string>,
+  regionName?: string,
 }
 
 export type Point = {|

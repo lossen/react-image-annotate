@@ -15,6 +15,7 @@ import Select from "react-select"
 import CreatableSelect from "react-select/creatable"
 
 import { asMutable } from "seamless-immutable"
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles(styles)
 
@@ -24,9 +25,11 @@ type Props = {
   allowedClasses?: Array<string>,
   disableClasses?: boolean,
   disableTags?: boolean,
+  disableRegionType?: boolean,
   allowedTags?: Array<string>,
   cls?: string,
   tags?: Array<string>,
+  regionName?: string,
   onDelete: (Region) => null,
   onChange: (Region) => null,
   onClose: (Region) => null,
@@ -45,17 +48,17 @@ export const RegionLabel = ({
   allowedClasses,
   disableClasses,
   disableTags,
+  disableRegionType,
   allowedTags,
   onDelete,
   onChange,
   onClose,
   onOpen,
   onRegionClassAdded,
-  customCloseRegion
+  customCloseRegion,
+  regionName
 }: Props) => {
   const classes = useStyles()
-
-  console.log(disableClasses,'disableClasses')
 
   return (
     <Paper
@@ -88,7 +91,7 @@ export const RegionLabel = ({
       ) : (
         <div style={{ width: 200 }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <div
+           {!disableRegionType && <div
               style={{
                 display: "flex",
                 backgroundColor: region.color || "#888",
@@ -102,7 +105,7 @@ export const RegionLabel = ({
               }}
             >
               {region.type}
-            </div>
+            </div>}
             <div style={{ flexGrow: 1 }} />
             <IconButton
               onClick={() => onDelete(region)}
@@ -154,6 +157,12 @@ export const RegionLabel = ({
               />
             </div>
           )}
+          <input type="text" autoFocus value={region.regionName} onChange={(newName) =>
+              onChange({
+                ...(region: any),
+                regionName: newName.target.value
+              })
+          }/>
           {onClose && (
             <div style={{ marginTop: 4, display: "flex" }}>
               <div style={{ flexGrow: 1 }} />

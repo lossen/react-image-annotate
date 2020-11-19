@@ -126,7 +126,6 @@ export const MainLayout = ({
       allowedArea={state.allowedArea}
       modifyingAllowedArea={state.selectedTool === "modify-allowed-area"}
       regionClsList={state.regionClsList}
-      regionName={state.regionName}
       regionTagList={state.regionTagList}
       regions={
         state.annotationType === "image"
@@ -150,6 +149,7 @@ export const MainLayout = ({
           : state.currentVideoTime
       }
       keypointDefinitions={state.keypointDefinitions}
+      disableRegionType={state.disableRegionType}
       customCloseRegion={state.customCloseRegion}
       onMouseMove={action("MOUSE_MOVE")}
       onMouseDown={action("MOUSE_DOWN")}

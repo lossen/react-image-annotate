@@ -29,7 +29,8 @@ export const RegionTags = ({
   onRegionClassAdded,
     disableClasses,
     disableTags,
-    customCloseRegion
+    customCloseRegion,
+    disableRegionType
 }) => {
   const RegionLabel =
     RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
@@ -124,6 +125,7 @@ export const RegionTags = ({
               customCloseRegion={customCloseRegion}
               disableClasses={disableClasses}
               disableTags={disableTags}
+              disableRegionType={disableRegionType}
             />
           </div>
         </div>

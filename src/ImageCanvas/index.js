@@ -59,6 +59,7 @@ type Props = {
   showHighlightBox?: boolean,
   disableClasses?: boolean,
   disableTags?: boolean,
+  disableRegionType?: boolean,
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   regionClsList?: Array<string>,
@@ -146,6 +147,7 @@ export const ImageCanvas = ({
   customCloseRegion,
   disableClasses,
   disableTags,
+  disableRegionType,
 }: Props) => {
   const classes = useStyles()
 
@@ -360,6 +362,7 @@ export const ImageCanvas = ({
                     h: allowedArea.h,
                     visible: true,
                     color: "#ff0",
+                    regionName: ''
                   },
                 ]
           }
@@ -398,6 +401,7 @@ export const ImageCanvas = ({
             customCloseRegion={customCloseRegion}
             disableClasses={disableClasses}
             disableTags={disableTags}
+            disableRegionType={disableRegionType}
           />
         </PreventScrollToParents>
       )}
@@ -415,6 +419,7 @@ export const ImageCanvas = ({
             customCloseRegion={customCloseRegion}
             disableClasses={disableClasses}
             disableTags={disableTags}
+            disableRegionType={disableRegionType}
           />
         </div>
       )}

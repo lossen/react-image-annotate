@@ -15,7 +15,6 @@ import getLandmarksWithTransform from "../../utils/get-landmarks-with-transform"
 const getRandomId = () => Math.random().toString().split(".")[1]
 
 export default (state: MainLayoutState, action: Action) => {
-  console.log(action,'action')
   if (
     state.allowedArea &&
     state.selectedTool !== "modify-allowed-area" &&
@@ -128,6 +127,12 @@ export default (state: MainLayoutState, action: Action) => {
       const regionIndex = getRegionIndex(action.region)
       if (regionIndex === null) return state
       const oldRegion = activeImage.regions[regionIndex]
+      // if (oldRegion.regionName !== action.region.regionName) {
+      //   state = setIn(
+      //       state, ["regionName"],
+      //       action.region.regionName
+      //   )
+      // }
       if (oldRegion.cls !== action.region.cls) {
         state = saveToHistory(state, "Change Region Classification")
         const clsIndex = state.regionClsList.indexOf(action.region.cls)
@@ -536,6 +541,7 @@ export default (state: MainLayoutState, action: Action) => {
             color: defaultRegionColor,
             cls: defaultRegionCls,
             id: getRandomId(),
+            regionName: ''
           }
           state = setIn(state, ["mode"], {
             mode: "RESIZE_BOX",
