@@ -46,6 +46,7 @@ type Props = {
   videoTime?: number,
   keypointDefinitions?: KeypointDefinitions,
   customCloseRegion?: customCloseRegion,
+  onLinkResource?: onLinkResource,
   customDeleteRegion?: customDeleteRegion,
   onMouseMove?: ({ x: number, y: number }) => any,
   onMouseDown?: ({ x: number, y: number }) => any,
@@ -146,6 +147,7 @@ export const ImageCanvas = ({
   modifyingAllowedArea = false,
   keypointDefinitions,
   customCloseRegion,
+  onLinkResource,
   customDeleteRegion,
   disableClasses,
   disableTags,
@@ -401,6 +403,7 @@ export const ImageCanvas = ({
             RegionEditLabel={RegionEditLabel}
             onRegionClassAdded={onRegionClassAdded}
             customCloseRegion={customCloseRegion}
+            onLinkResource={onLinkResource}
             customDeleteRegion={customDeleteRegion}
             disableClasses={disableClasses}
             disableTags={disableTags}
@@ -420,6 +423,7 @@ export const ImageCanvas = ({
             region={highlightedRegion}
             imageSrc={imageSrc}
             customCloseRegion={customCloseRegion}
+            onLinkResource={onLinkResource}
             customDeleteRegion={customDeleteRegion}
             disableClasses={disableClasses}
             disableTags={disableTags}

@@ -4,6 +4,7 @@ import { grey } from "@material-ui/core/colors"
 
 export default {
   regionInfo: {
+    borderRadius: 4,
     fontSize: 12,
     cursor: "default",
     transition: "opacity 200ms",
@@ -21,7 +22,7 @@ export default {
     // pointerEvents: "none",
     fontWeight: 600,
     color: grey[900],
-    padding: 8,
+    padding: 24,
     "& .name": {
       display: "flex",
       flexDirection: "row",
@@ -44,4 +45,44 @@ export default {
       },
     },
   },
+  regionPopupFooter: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+
+  },
+  btnSmall: {
+    borderRadius: '240px',
+    backgroundColor: '#F4F3FF',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 48,
+    minHeight: 35,
+    border: 'none',
+    boxShadow: 'none',
+    cursor: 'poiter',
+    marginRight: 8
+  },
+  input:{
+    borderColor: '#817C98',
+    borderRadius: 5,
+    fontSize: 16,
+    color: '#817C98',
+    marginBottom: 24,
+    outline: 'none',
+    borderWidth: 1,
+    height: 40,
+    width: '100%'
+
+  },
+  buttonSubmit: {
+    fontSize: 14,
+    lineHeight: '16px',
+    borderRadius: 5,
+    backgroundColor: '#845EC2',
+    color: 'white',
+    borderWidth: 0,
+    minWidth: 100
+  }
 }

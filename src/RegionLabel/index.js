@@ -16,6 +16,9 @@ import CreatableSelect from "react-select/creatable"
 
 import { asMutable } from "seamless-immutable"
 import TextField from "@material-ui/core/TextField";
+import {ReactSVG} from "react-svg";
+import DeleteIcon from '../images/delete-icon.svg';
+import LinkIcon from '../images/link-icon.svg';
 
 const useStyles = makeStyles(styles)
 
@@ -61,6 +64,7 @@ export const RegionLabel = ({
   onOpen,
   onRegionClassAdded,
   customCloseRegion,
+  onLinkResource,
   customDeleteRegion,
   regionName
 }: Props) => {
@@ -113,15 +117,6 @@ export const RegionLabel = ({
               {region.type}
             </div>}
             <div style={{ flexGrow: 1 }} />
-            <IconButton
-              onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
-              tabIndex={-1}
-              style={{ width: 22, height: 22 }}
-              size="small"
-              variant="outlined"
-            >
-              <TrashIcon style={{ marginTop: -8, width: 16, height: 16 }} />
-            </IconButton>
           </div>
           {!disableClasses && (allowedClasses || []).length > 0 && (
             <div style={{ marginTop: 6 }}>
@@ -163,25 +158,30 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          <input type="text" autoFocus value={region.regionName} onChange={(newName) =>
+          <input className={classes.input} type="text" autoFocus value={region.regionName} onChange={(newName) =>
               onChange({
                 ...(region: any),
                 regionName: newName.target.value
               })
           }/>
-          {onClose && (
-            <div style={{ marginTop: 4, display: "flex" }}>
-              <div style={{ flexGrow: 1 }} />
-              <Button
-                onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion)}
-                size="small"
-                variant="contained"
-                color="primary"
-              >
-                <CheckIcon />
-              </Button>
-            </div>
-          )}
+          <div className={classes.regionPopupFooter}>
+            <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}>
+              <ReactSVG src={DeleteIcon}/>
+            </button>
+            {onLinkResource && <button className={classes.btnSmall} onClick={onLinkResource}>
+              <ReactSVG src={LinkIcon}/>
+            </button>}
+            {onClose && (
+                <button
+                    className={classes.buttonSubmit}
+                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion)}
+                >
+                  Save
+                </button>
+            )}
+          </div>
+
+
         </div>
       )}
     </Paper>

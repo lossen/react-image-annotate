@@ -152,6 +152,7 @@ export const MainLayout = ({
       disableRegionType={state.disableRegionType}
       customCloseRegion={state.customCloseRegion}
       customDeleteRegion={state.customDeleteRegion}
+      onLinkResource={state.onLinkResource}
       onMouseMove={action("MOUSE_MOVE")}
       onMouseDown={action("MOUSE_DOWN")}
       onMouseUp={action("MOUSE_UP")}

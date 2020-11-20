@@ -39,7 +39,10 @@ export default (function () {
     disableClasses: true,
     disableTags: true,
     disableRegionType: true,
-    disableTopNav: true
+    disableTopNav: true,
+    onLinkResource: function onLinkResource(region_id) {
+      return console.log(region_id, 'onLinkResource');
+    }
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {

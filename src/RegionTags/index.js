@@ -31,7 +31,8 @@ export const RegionTags = ({
     disableTags,
     customCloseRegion,
     customDeleteRegion,
-    disableRegionType
+    disableRegionType,
+    onLinkResource
 }) => {
   const RegionLabel =
     RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
@@ -128,6 +129,7 @@ export const RegionTags = ({
               disableClasses={disableClasses}
               disableTags={disableTags}
               disableRegionType={disableRegionType}
+              onLinkResource={() => onLinkResource(region.id)}
             />
           </div>
         </div>

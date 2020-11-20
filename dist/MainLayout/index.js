@@ -145,6 +145,7 @@ export var MainLayout = function MainLayout(_ref2) {
     disableRegionType: state.disableRegionType,
     customCloseRegion: state.customCloseRegion,
     customDeleteRegion: state.customDeleteRegion,
+    onLinkResource: state.onLinkResource,
     onMouseMove: action("MOUSE_MOVE"),
     onMouseDown: action("MOUSE_DOWN"),
     onMouseUp: action("MOUSE_UP"),

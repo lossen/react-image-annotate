@@ -13,6 +13,9 @@ import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
 import { asMutable } from "seamless-immutable";
 import TextField from "@material-ui/core/TextField";
+import { ReactSVG } from "react-svg";
+import DeleteIcon from '../images/delete-icon.svg';
+import LinkIcon from '../images/link-icon.svg';
 var useStyles = makeStyles(styles);
 
 function handleCloseRegionEditor(onClose, region, customCloseRegion) {
@@ -39,6 +42,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       onOpen = _ref.onOpen,
       onRegionClassAdded = _ref.onRegionClassAdded,
       customCloseRegion = _ref.customCloseRegion,
+      onLinkResource = _ref.onLinkResource,
       customDeleteRegion = _ref.customDeleteRegion,
       regionName = _ref.regionName;
   var classes = useStyles();
@@ -88,24 +92,7 @@ export var RegionLabel = function RegionLabel(_ref) {
     style: {
       flexGrow: 1
     }
-  }), /*#__PURE__*/React.createElement(IconButton, {
-    onClick: function onClick() {
-      return handleDeleteRegionEditor(onDelete, region, customDeleteRegion);
-    },
-    tabIndex: -1,
-    style: {
-      width: 22,
-      height: 22
-    },
-    size: "small",
-    variant: "outlined"
-  }, /*#__PURE__*/React.createElement(TrashIcon, {
-    style: {
-      marginTop: -8,
-      width: 16,
-      height: 16
-    }
-  }))), !disableClasses && (allowedClasses || []).length > 0 && /*#__PURE__*/React.createElement("div", {
+  })), !disableClasses && (allowedClasses || []).length > 0 && /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 6
     }
@@ -157,6 +144,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       };
     }))
   })), /*#__PURE__*/React.createElement("input", {
+    className: classes.input,
     type: "text",
     autoFocus: true,
     value: region.regionName,
@@ -165,23 +153,26 @@ export var RegionLabel = function RegionLabel(_ref) {
         regionName: newName.target.value
       }));
     }
-  }), onClose && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 4,
-      display: "flex"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: classes.regionPopupFooter
+  }, /*#__PURE__*/React.createElement("button", {
+    className: classes.btnSmall,
+    onClick: function onClick() {
+      return handleDeleteRegionEditor(onDelete, region, customDeleteRegion);
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      flexGrow: 1
-    }
-  }), /*#__PURE__*/React.createElement(Button, {
+  }, /*#__PURE__*/React.createElement(ReactSVG, {
+    src: DeleteIcon
+  })), onLinkResource && /*#__PURE__*/React.createElement("button", {
+    className: classes.btnSmall,
+    onClick: onLinkResource
+  }, /*#__PURE__*/React.createElement(ReactSVG, {
+    src: LinkIcon
+  })), onClose && /*#__PURE__*/React.createElement("button", {
+    className: classes.buttonSubmit,
     onClick: function onClick() {
       return handleCloseRegionEditor(onClose, region, customCloseRegion);
-    },
-    size: "small",
-    variant: "contained",
-    color: "primary"
-  }, /*#__PURE__*/React.createElement(CheckIcon, null)))));
+    }
+  }, "Save"))));
 };
 export default memo(RegionLabel, function (prevProps, nextProps) {
   return prevProps.editing === nextProps.editing && prevProps.region === nextProps.region;
