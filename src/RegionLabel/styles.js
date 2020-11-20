@@ -80,7 +80,7 @@ export default {
     fontSize: 14,
     lineHeight: '16px',
     borderRadius: 5,
-    backgroundColor: '#845EC2',
+    backgroundColor: '#6C63FF',
     color: 'white',
     borderWidth: 0,
     minWidth: 100
