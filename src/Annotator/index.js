@@ -52,6 +52,7 @@ type Props = {
   keypointDefinitions: KeypointsDefinition,
   fullImageSegmentationMode?: boolean,
   disableRegionType?: boolean,
+  disableTopNav?: boolean,
   autoSegmentationOptions?:
     | {| type: "simple" |}
     | {| type: "autoseg", maxClusters?: number, slicWeightFactor?: number |},
@@ -74,6 +75,7 @@ export const Annotator = ({
   ],
   disableNavs = true,
   disableRegionType = true,
+  disableTopNav = true,
   disableClasses = true,
   disableTags = true,
   disableSettings = true,
@@ -135,6 +137,7 @@ export const Annotator = ({
       disableClasses,
       disableTags,
       disableRegionType,
+      disableTopNav,
       customCloseRegion,
       customDeleteRegion,
       history: [],

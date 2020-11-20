@@ -34,6 +34,7 @@ export default () => {
             disableClasses={true}
             disableTags={true}
             disableRegionType={true}
+            disableTopNav={true}
           />
         </ErrorBoundaryDialog>
       ) : (

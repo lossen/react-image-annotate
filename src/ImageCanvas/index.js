@@ -327,7 +327,7 @@ export const ImageCanvas = ({
       style={{
         width: "100%",
         height: "100%",
-        maxHeight: "calc(100vh - 68px)",
+        maxHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         cursor: createWithPrimary

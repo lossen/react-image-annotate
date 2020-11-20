@@ -188,7 +188,13 @@ export const MainLayout = ({
   )
 
   const onClickIconSidebarItem = useEventCallback((item) => {
-    dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
+    if (item.name === "Fullscreen") {
+      fullScreenHandle.enter()
+      dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
+    } else if (item.name === "Window") {
+      fullScreenHandle.exit()
+      dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
+    }else dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
   })
 
   const onClickHeaderItem = useEventCallback((item) => {
@@ -230,7 +236,7 @@ export const MainLayout = ({
           <Workspace
             allowFullscreen
             iconDictionary={iconDictionary}
-            headerLeftSide={[
+            headerLeftSide={!state.disableTopNav ? [
               state.annotationType === "video" ? (
                 <KeyframeTimeline
                   currentTime={state.currentVideoTime}
@@ -241,8 +247,8 @@ export const MainLayout = ({
               ) : activeImage ? (
                 <div className={classes.headerTitle}>{activeImage.name}</div>
               ) : null,
-            ].filter(Boolean)}
-            headerItems={[
+            ].filter(Boolean) : []}
+            headerItems={!state.disableTopNav ? [
               !state.disableNavs && { name: "Prev" },
               !state.disableNavs && { name: "Next" },
               state.annotationType !== "video"
@@ -254,7 +260,7 @@ export const MainLayout = ({
               !state.disableSettings && { name: "Settings" },
               state.fullScreen ? { name: "Window" } : { name: "Fullscreen" },
               { name: "Save" },
-            ].filter(Boolean)}
+            ].filter(Boolean) : []}
             onClickHeaderItem={onClickHeaderItem}
             onClickIconSidebarItem={onClickIconSidebarItem}
             selectedTools={[
@@ -314,6 +320,10 @@ export const MainLayout = ({
                 name: "modify-allowed-area",
                 helperText: "Modify Allowed Area",
               },
+              { name: state.fullScreen ? "Window" : "Fullscreen",
+                alwaysShowing: true,
+                helperText: state.fullScreen ? "Window" : "Fullscreen",
+              }
             ]
               .filter(Boolean)
               .filter(

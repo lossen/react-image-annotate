@@ -296,7 +296,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     style: {
       width: "100%",
       height: "100%",
-      maxHeight: "calc(100vh - 68px)",
+      maxHeight: "100vh",
       position: "relative",
       overflow: "hidden",
       cursor: createWithPrimary ? "crosshair" : dragging ? "grabbing" : dragWithPrimary ? "grab" : zoomWithPrimary ? mat.a < 1 ? "zoom-out" : "zoom-in" : undefined

@@ -166,7 +166,19 @@ export var MainLayout = function MainLayout(_ref2) {
     onRegionClassAdded: onRegionClassAdded
   }));
   var onClickIconSidebarItem = useEventCallback(function (item) {
-    dispatch({
+    if (item.name === "Fullscreen") {
+      fullScreenHandle.enter();
+      dispatch({
+        type: "HEADER_BUTTON_CLICKED",
+        buttonName: item.name
+      });
+    } else if (item.name === "Window") {
+      fullScreenHandle.exit();
+      dispatch({
+        type: "HEADER_BUTTON_CLICKED",
+        buttonName: item.name
+      });
+    } else dispatch({
       type: "SELECT_TOOL",
       selectedTool: item.name
     });
@@ -204,15 +216,15 @@ export var MainLayout = function MainLayout(_ref2) {
   }, /*#__PURE__*/React.createElement(Workspace, {
     allowFullscreen: true,
     iconDictionary: iconDictionary,
-    headerLeftSide: [state.annotationType === "video" ? /*#__PURE__*/React.createElement(KeyframeTimeline, {
+    headerLeftSide: !state.disableTopNav ? [state.annotationType === "video" ? /*#__PURE__*/React.createElement(KeyframeTimeline, {
       currentTime: state.currentVideoTime,
       duration: state.videoDuration,
       onChangeCurrentTime: action("CHANGE_VIDEO_TIME", "newTime"),
       keyframes: state.keyframes
     }) : activeImage ? /*#__PURE__*/React.createElement("div", {
       className: classes.headerTitle
-    }, activeImage.name) : null].filter(Boolean),
-    headerItems: [!state.disableNavs && {
+    }, activeImage.name) : null].filter(Boolean) : [],
+    headerItems: !state.disableTopNav ? [!state.disableNavs && {
       name: "Prev"
     }, !state.disableNavs && {
       name: "Next"
@@ -230,7 +242,7 @@ export var MainLayout = function MainLayout(_ref2) {
       name: "Fullscreen"
     }, {
       name: "Save"
-    }].filter(Boolean),
+    }].filter(Boolean) : [],
     onClickHeaderItem: onClickHeaderItem,
     onClickIconSidebarItem: onClickIconSidebarItem,
     selectedTools: [state.selectedTool, state.showTags && "show-tags", state.showMask && "show-mask"].filter(Boolean),
@@ -274,6 +286,10 @@ export var MainLayout = function MainLayout(_ref2) {
     }, {
       name: "modify-allowed-area",
       helperText: "Modify Allowed Area"
+    }, {
+      name: state.fullScreen ? "Window" : "Fullscreen",
+      alwaysShowing: true,
+      helperText: state.fullScreen ? "Window" : "Fullscreen"
     }].filter(Boolean).filter(function (a) {
       return a.alwaysShowing || state.enabledTools.includes(a.name);
     }),

@@ -38,7 +38,8 @@ export default (function () {
     },
     disableClasses: true,
     disableTags: true,
-    disableRegionType: true
+    disableRegionType: true,
+    disableTopNav: true
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {
