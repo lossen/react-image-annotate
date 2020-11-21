@@ -69,7 +69,7 @@ export var RegionLabel = function RegionLabel(_ref) {
     }, t);
   }))) : /*#__PURE__*/React.createElement("div", {
     style: {
-      width: 200,
+      width: 250,
       padding: 16
     }
   }, /*#__PURE__*/React.createElement("div", {

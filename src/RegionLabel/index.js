@@ -99,7 +99,7 @@ export const RegionLabel = ({
           )}
         </div>
       ) : (
-        <div style={{ width: 200,padding: 16 }}>
+        <div style={{ width: 250,padding: 16 }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
            {!disableRegionType && <div
               style={{
