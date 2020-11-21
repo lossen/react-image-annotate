@@ -19,7 +19,7 @@ export default {
     // pointerEvents: "none",
     fontWeight: 600,
     color: grey[900],
-    padding: 24,
+    padding: 10,
     "& .name": {
       display: "flex",
       flexDirection: "row",
