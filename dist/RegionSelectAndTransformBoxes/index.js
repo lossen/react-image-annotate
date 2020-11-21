@@ -34,7 +34,8 @@ export var RegionSelectAndTransformBox = memo(function (_ref) {
       onBeginMovePolygonPoint = _ref.onBeginMovePolygonPoint,
       onBeginMoveKeypoint = _ref.onBeginMoveKeypoint,
       onAddPolygonPoint = _ref.onAddPolygonPoint,
-      showHighlightBox = _ref.showHighlightBox;
+      showHighlightBox = _ref.showHighlightBox,
+      customOpenRegion = _ref.customOpenRegion;
   var pbox = projectRegionBox(r);
   var _layoutParams$current = layoutParams.current,
       iw = _layoutParams$current.iw,
@@ -47,7 +48,8 @@ export var RegionSelectAndTransformBox = memo(function (_ref) {
     zoomWithPrimary: zoomWithPrimary,
     onBeginMovePoint: onBeginMovePoint,
     onSelectRegion: onSelectRegion,
-    pbox: pbox
+    pbox: pbox,
+    customOpenRegion: customOpenRegion
   }), r.type === "box" && !dragWithPrimary && !zoomWithPrimary && !r.locked && r.highlighted && mat.a < 1.2 && [[0, 0], [0.5, 0], [1, 0], [1, 0.5], [1, 1], [0.5, 1], [0, 1], [0, 0.5], [0.5, 0.5]].map(function (_ref2, i) {
     var _ref3 = _slicedToArray(_ref2, 2),
         px = _ref3[0],

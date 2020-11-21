@@ -30,6 +30,7 @@ export const RegionTags = ({
     disableClasses,
     disableTags,
     customCloseRegion,
+    customOpenRegion,
     customDeleteRegion,
     disableRegionType,
     onLinkResource
@@ -125,6 +126,7 @@ export const RegionTags = ({
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               customCloseRegion={customCloseRegion}
+              customOpenRegion={customOpenRegion}
               customDeleteRegion={customDeleteRegion}
               disableClasses={disableClasses}
               disableTags={disableTags}

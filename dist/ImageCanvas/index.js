@@ -101,6 +101,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       modifyingAllowedArea = _ref2$modifyingAllowe === void 0 ? false : _ref2$modifyingAllowe,
       keypointDefinitions = _ref2.keypointDefinitions,
       customCloseRegion = _ref2.customCloseRegion,
+      customOpenRegion = _ref2.customOpenRegion,
       onLinkResource = _ref2.onLinkResource,
       customDeleteRegion = _ref2.customDeleteRegion,
       disableClasses = _ref2.disableClasses,
@@ -333,7 +334,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     onBeginMovePolygonPoint: onBeginMovePolygonPoint,
     onBeginMoveKeypoint: onBeginMoveKeypoint,
     onAddPolygonPoint: onAddPolygonPoint,
-    showHighlightBox: showHighlightBox
+    showHighlightBox: showHighlightBox,
+    customOpenRegion: customOpenRegion
   }), imageLoaded && showTags && !dragging && /*#__PURE__*/React.createElement(PreventScrollToParents, {
     key: "regionTags"
   }, /*#__PURE__*/React.createElement(RegionTags, {
@@ -351,6 +353,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     RegionEditLabel: RegionEditLabel,
     onRegionClassAdded: onRegionClassAdded,
     customCloseRegion: customCloseRegion,
+    customOpenRegion: customOpenRegion,
     onLinkResource: onLinkResource,
     customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,
@@ -369,6 +372,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     region: highlightedRegion,
     imageSrc: imageSrc,
     customCloseRegion: customCloseRegion,
+    customOpenRegion: customOpenRegion,
     onLinkResource: onLinkResource,
     customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,

@@ -36,6 +36,11 @@ const useStyles = makeStyles({
   },
 })
 
+function handleSelectRegion(onSelectRegion, r,customOpenRegion) {
+  customOpenRegion(r.id)
+  onSelectRegion(r)
+}
+
 export const HighlightBox = ({
   mouseEvents,
   dragWithPrimary,
@@ -43,6 +48,7 @@ export const HighlightBox = ({
   createWithPrimary,
   onBeginMovePoint,
   onSelectRegion,
+  customOpenRegion,
   region: r,
   pbox,
 }: {
@@ -52,6 +58,7 @@ export const HighlightBox = ({
   createWithPrimary: boolean,
   onBeginMovePoint: Function,
   onSelectRegion: Function,
+  customOpenRegion: Function,
   region: any,
   pbox: { x: number, y: number, w: number, h: number },
 }) => {
@@ -100,7 +107,7 @@ export const HighlightBox = ({
               ) {
                 return onBeginMovePoint(r)
               }
-              if (e.button === 0 && !createWithPrimary) return onSelectRegion(r)
+              if (e.button === 0 && !createWithPrimary) return handleSelectRegion(onSelectRegion,r,customOpenRegion)
               mouseEvents.onMouseDown(e)
             },
           }

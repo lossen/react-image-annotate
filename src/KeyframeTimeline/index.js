@@ -76,7 +76,6 @@ const KeyframeMarker = styled("div")({
   display: "grid",
   placeItems: "center",
   width: 16,
-  marginLeft: 0,
   borderTopLeftRadius: 2,
   borderTopRightRadius: 2,
   height: 12,

@@ -1,7 +1,4 @@
 import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
-import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
-
-var _styled;
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -69,7 +66,7 @@ var PositionCursor = styled("div")({
     borderRight: "8px solid transparent"
   }
 });
-var KeyframeMarker = styled("div")((_styled = {
+var KeyframeMarker = styled("div")({
   position: "absolute",
   bottom: 8,
   cursor: "pointer",
@@ -80,21 +77,25 @@ var KeyframeMarker = styled("div")((_styled = {
   display: "grid",
   placeItems: "center",
   width: 16,
-  marginLeft: 0,
   borderTopLeftRadius: 2,
   borderTopRightRadius: 2,
-  height: 12
-}, _defineProperty(_styled, "marginLeft", -8), _defineProperty(_styled, "backgroundColor", colors.red[500]), _defineProperty(_styled, "userSelect", "none"), _defineProperty(_styled, "fontVariantNumeric", "tabular-nums"), _defineProperty(_styled, "&::before", {
-  position: "absolute",
-  bottom: -8,
-  left: 0,
-  content: '""',
-  width: 0,
-  height: 0,
-  borderTop: "8px solid ".concat(colors.red[500]),
-  borderLeft: "8px solid transparent",
-  borderRight: "8px solid transparent"
-}), _styled));
+  height: 12,
+  marginLeft: -8,
+  backgroundColor: colors.red[500],
+  userSelect: "none",
+  fontVariantNumeric: "tabular-nums",
+  "&::before": {
+    position: "absolute",
+    bottom: -8,
+    left: 0,
+    content: '""',
+    width: 0,
+    height: 0,
+    borderTop: "8px solid ".concat(colors.red[500]),
+    borderLeft: "8px solid transparent",
+    borderRight: "8px solid transparent"
+  }
+});
 var min = 60000;
 var displayIntervalPairs = [[50, 250], [100, 500], [250, 1000], [1000, 5000], [5000, 30000], [10000, min], [30000, min * 2], [min, min * 5], [min * 5, min * 30], [min * 10, min * 60], [min * 30, min * 60 * 3], [min * 60, min * 60 * 5]];
 

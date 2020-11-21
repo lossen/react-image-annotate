@@ -50,6 +50,11 @@ function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
   customDeleteRegion(region.id)
 }
 
+function handleOpenRegionEditor(onOpen,region,customOpenRegion) {
+  onOpen(region)
+  customOpenRegion(region.id)
+}
+
 export const RegionLabel = ({
   region,
   editing,
@@ -66,13 +71,14 @@ export const RegionLabel = ({
   customCloseRegion,
   onLinkResource,
   customDeleteRegion,
+  customOpenRegion,
   regionName
 }: Props) => {
   const classes = useStyles()
 
   return (
     <Paper
-      onClick={() => (!editing ? onOpen(region) : null)}
+      onClick={() => (!editing ? handleOpenRegionEditor(onOpen,region,customOpenRegion) : null)}
       className={classnames(classes.regionInfo, {
         highlighted: region.highlighted,
       })}

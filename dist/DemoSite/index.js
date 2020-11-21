@@ -42,6 +42,9 @@ export default (function () {
     disableTopNav: true,
     onLinkResource: function onLinkResource(region_id) {
       return console.log(region_id, 'onLinkResource');
+    },
+    customOpenRegion: function customOpenRegion(region_id) {
+      return console.log(region_id, 'customOpenRegion');
     }
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,

@@ -36,6 +36,7 @@ export default () => {
             disableRegionType={true}
             disableTopNav={true}
             onLinkResource={(region_id) => console.log(region_id,'onLinkResource')}
+            customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
           />
         </ErrorBoundaryDialog>
       ) : (

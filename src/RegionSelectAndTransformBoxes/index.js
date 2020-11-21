@@ -46,6 +46,7 @@ export const RegionSelectAndTransformBox = memo(
     onBeginMoveKeypoint,
     onAddPolygonPoint,
     showHighlightBox,
+    customOpenRegion,
   }) => {
     const pbox = projectRegionBox(r)
     const { iw, ih } = layoutParams.current
@@ -62,6 +63,7 @@ export const RegionSelectAndTransformBox = memo(
               onBeginMovePoint={onBeginMovePoint}
               onSelectRegion={onSelectRegion}
               pbox={pbox}
+              customOpenRegion={customOpenRegion}
             />
           )}
           {r.type === "box" &&

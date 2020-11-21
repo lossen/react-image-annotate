@@ -36,6 +36,7 @@ export var RegionTags = function RegionTags(_ref) {
       disableClasses = _ref.disableClasses,
       disableTags = _ref.disableTags,
       customCloseRegion = _ref.customCloseRegion,
+      customOpenRegion = _ref.customOpenRegion,
       customDeleteRegion = _ref.customDeleteRegion,
       disableRegionType = _ref.disableRegionType,
       _onLinkResource = _ref.onLinkResource;
@@ -137,6 +138,7 @@ export var RegionTags = function RegionTags(_ref) {
       imageSrc: imageSrc,
       onRegionClassAdded: onRegionClassAdded,
       customCloseRegion: customCloseRegion,
+      customOpenRegion: customOpenRegion,
       customDeleteRegion: customDeleteRegion,
       disableClasses: disableClasses,
       disableTags: disableTags,

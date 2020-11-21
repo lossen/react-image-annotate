@@ -37,6 +37,12 @@ var useStyles = makeStyles({
     }
   }
 });
+
+function handleSelectRegion(onSelectRegion, r, customOpenRegion) {
+  customOpenRegion(r.id);
+  onSelectRegion(r);
+}
+
 export var HighlightBox = function HighlightBox(_ref) {
   var mouseEvents = _ref.mouseEvents,
       dragWithPrimary = _ref.dragWithPrimary,
@@ -44,6 +50,7 @@ export var HighlightBox = function HighlightBox(_ref) {
       createWithPrimary = _ref.createWithPrimary,
       onBeginMovePoint = _ref.onBeginMovePoint,
       onSelectRegion = _ref.onSelectRegion,
+      customOpenRegion = _ref.customOpenRegion,
       r = _ref.region,
       pbox = _ref.pbox;
   var classes = useStyles();
@@ -73,7 +80,7 @@ export var HighlightBox = function HighlightBox(_ref) {
         return onBeginMovePoint(r);
       }
 
-      if (e.button === 0 && !createWithPrimary) return onSelectRegion(r);
+      if (e.button === 0 && !createWithPrimary) return handleSelectRegion(onSelectRegion, r, customOpenRegion);
       mouseEvents.onMouseDown(e);
     }
   } : {}, {

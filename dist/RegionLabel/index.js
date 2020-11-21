@@ -28,6 +28,11 @@ function handleDeleteRegionEditor(onDelete, region, customDeleteRegion) {
   customDeleteRegion(region.id);
 }
 
+function handleOpenRegionEditor(onOpen, region, customOpenRegion) {
+  onOpen(region);
+  customOpenRegion(region.id);
+}
+
 export var RegionLabel = function RegionLabel(_ref) {
   var region = _ref.region,
       editing = _ref.editing,
@@ -44,11 +49,12 @@ export var RegionLabel = function RegionLabel(_ref) {
       customCloseRegion = _ref.customCloseRegion,
       onLinkResource = _ref.onLinkResource,
       customDeleteRegion = _ref.customDeleteRegion,
+      customOpenRegion = _ref.customOpenRegion,
       regionName = _ref.regionName;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
-      return !editing ? onOpen(region) : null;
+      return !editing ? handleOpenRegionEditor(onOpen, region, customOpenRegion) : null;
     },
     className: classnames(classes.regionInfo, {
       highlighted: region.highlighted
