@@ -17,8 +17,8 @@ import CreatableSelect from "react-select/creatable"
 import { asMutable } from "seamless-immutable"
 import TextField from "@material-ui/core/TextField";
 import {ReactSVG} from "react-svg";
-import DeleteIcon from '../images/delete-icon.svg';
-import LinkIcon from '../images/link-icon.svg';
+import DeleteIcon from '../static/delete-icon.svg';
+import LinkIcon from '../static/link-icon.svg';
 
 const useStyles = makeStyles(styles)
 
