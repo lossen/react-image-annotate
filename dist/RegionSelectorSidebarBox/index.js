@@ -18,7 +18,7 @@ import classnames from "classnames";
 import isEqual from "lodash/isEqual";
 var useStyles = makeStyles(styles);
 var HeaderSep = styled("div")({
-  borderTop: "1px solid ".concat(grey[200]),
+  borderTop: "none",
   marginTop: 2,
   marginBottom: 2
 });

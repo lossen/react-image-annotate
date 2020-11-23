@@ -20,7 +20,7 @@ import isEqual from "lodash/isEqual"
 const useStyles = makeStyles(styles)
 
 const HeaderSep = styled("div")({
-  borderTop: `1px solid ${grey[200]}`,
+  borderTop: "none",
   marginTop: 2,
   marginBottom: 2,
 })

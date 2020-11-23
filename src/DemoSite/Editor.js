@@ -14,7 +14,7 @@ import MonacoEditor from "react-monaco-editor"
 const useStyles = makeStyles({
   editBar: {
     padding: 10,
-    borderBottom: "1px solid #ccc",
+    borderBottom: "none",
     backgroundColor: "#f8f8f8",
     display: "flex",
     alignItems: "center",

@@ -367,7 +367,7 @@ export const ImageCanvas = ({
                     w: allowedArea.w,
                     h: allowedArea.h,
                     visible: true,
-                    color: "#ff0",
+                    color: "#fff",
                     regionName: ''
                   },
                 ]

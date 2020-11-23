@@ -8,6 +8,8 @@ export default {
     maxHeight: "100vh",
     backgroundColor: "#fff",
     overflow: "hidden",
+    outline: 'none',
+    boxShadow: 'none',
     "&.fullscreen": {
       position: "absolute",
       zIndex: 99999,

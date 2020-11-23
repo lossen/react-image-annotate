@@ -558,7 +558,7 @@ export default (function (state, action) {
 
         var newRegion;
         var defaultRegionCls = undefined,
-            defaultRegionColor = "#ff0000";
+            defaultRegionColor = "#7b82ff";
 
         if (activeImage && (activeImage.regions || []).length > 0) {
           defaultRegionCls = activeImage.regions.slice(-1)[0].cls;

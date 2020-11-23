@@ -504,7 +504,7 @@ export default (state: MainLayoutState, action: Action) => {
 
       let newRegion
       let defaultRegionCls = undefined,
-        defaultRegionColor = "#ff0000"
+        defaultRegionColor = "#fff"
       if (activeImage && (activeImage.regions || []).length > 0) {
         defaultRegionCls = activeImage.regions.slice(-1)[0].cls
         const clsIndex = (state.regionClsList || []).indexOf(defaultRegionCls)

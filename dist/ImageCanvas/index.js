@@ -318,7 +318,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       w: allowedArea.w,
       h: allowedArea.h,
       visible: true,
-      color: "#ff0",
+      color: "#fff",
       regionName: ''
     }],
     mouseEvents: mouseEvents,
