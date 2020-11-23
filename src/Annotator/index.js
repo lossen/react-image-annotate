@@ -195,7 +195,6 @@ export const Annotator = ({
   if (!images && !videoSrc)
     return 'Missing required prop "images" or "videoSrc"'
 
-  console.log(state.images,'state.images from annotator')
   return (
     <SettingsProvider>
       <MainLayout

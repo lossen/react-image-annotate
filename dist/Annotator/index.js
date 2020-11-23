@@ -151,7 +151,6 @@ export var Annotator = function Annotator(_ref) {
     });
   }, [selectedImage]);
   if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
-  console.log(state.images, 'state.images from annotator');
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,
     alwaysShowNextButton: Boolean(onNextImage),

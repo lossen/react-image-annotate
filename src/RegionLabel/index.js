@@ -40,9 +40,16 @@ type Props = {
   onRegionClassAdded: () => {},
 }
 
-function handleCloseRegionEditor(onClose,region,customCloseRegion) {
+function handleCloseRegionEditor(onClose,region,customCloseRegion,onChange) {
   onClose(region)
-  customCloseRegion(region)
+  // customCloseRegion(region)
+  let newId = customCloseRegion(region);
+  if(newId){
+    onChange({
+      ...(region: any),
+      new_id: newId,
+    })
+  }
 }
 
 function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
@@ -75,6 +82,7 @@ export const RegionLabel = ({
   regionName
 }: Props) => {
   const classes = useStyles()
+  console.log(region,'region')
 
   return (
     <Paper
@@ -180,7 +188,7 @@ export const RegionLabel = ({
             {onClose && (
                 <button
                     className={classes.buttonSubmit}
-                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion)}
+                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion,onChange)}
                 >
                   Save
                 </button>

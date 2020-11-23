@@ -128,12 +128,7 @@ export default (function (state, action) {
       {
         var regionIndex = getRegionIndex(action.region);
         if (regionIndex === null) return state;
-        var oldRegion = activeImage.regions[regionIndex]; // if (oldRegion.regionName !== action.region.regionName) {
-        //   state = setIn(
-        //       state, ["regionName"],
-        //       action.region.regionName
-        //   )
-        // }
+        var oldRegion = activeImage.regions[regionIndex];
 
         if (oldRegion.cls !== action.region.cls) {
           state = saveToHistory(state, "Change Region Classification");
@@ -148,7 +143,15 @@ export default (function (state, action) {
           state = saveToHistory(state, "Change Region Tags");
         }
 
-        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), action.region);
+        if (action.region.new_id) {
+          var newRegionData = _objectSpread({}, action.region, {
+            id: action.region.new_id
+          });
+
+          return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), newRegionData);
+        } else {
+          return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), action.region);
+        }
       }
 
     case "CHANGE_IMAGE":
@@ -558,7 +561,7 @@ export default (function (state, action) {
 
         var newRegion;
         var defaultRegionCls = undefined,
-            defaultRegionColor = "#7b82ff";
+            defaultRegionColor = "#fff";
 
         if (activeImage && (activeImage.regions || []).length > 0) {
           defaultRegionCls = activeImage.regions.slice(-1)[0].cls;

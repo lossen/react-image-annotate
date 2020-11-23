@@ -18,9 +18,16 @@ import DeleteIcon from '../static/delete-icon.svg';
 import LinkIcon from '../static/link-icon.svg';
 var useStyles = makeStyles(styles);
 
-function handleCloseRegionEditor(onClose, region, customCloseRegion) {
-  onClose(region);
-  customCloseRegion(region);
+function handleCloseRegionEditor(onClose, region, customCloseRegion, onChange) {
+  onClose(region); // customCloseRegion(region)
+
+  var newId = customCloseRegion(region);
+
+  if (newId) {
+    onChange(_objectSpread({}, region, {
+      new_id: newId
+    }));
+  }
 }
 
 function handleDeleteRegionEditor(onDelete, region, customDeleteRegion) {
@@ -52,6 +59,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       customOpenRegion = _ref.customOpenRegion,
       regionName = _ref.regionName;
   var classes = useStyles();
+  console.log(region, 'region');
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
       return !editing ? handleOpenRegionEditor(onOpen, region, customOpenRegion) : null;
@@ -177,7 +185,7 @@ export var RegionLabel = function RegionLabel(_ref) {
   })), onClose && /*#__PURE__*/React.createElement("button", {
     className: classes.buttonSubmit,
     onClick: function onClick() {
-      return handleCloseRegionEditor(onClose, region, customCloseRegion);
+      return handleCloseRegionEditor(onClose, region, customCloseRegion, _onChange);
     }
   }, "Save"))));
 };
