@@ -44,7 +44,7 @@ type Props = {
 function handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions) {
   onClose(region)
   customCloseRegion(region)
-  onUpdateRegions(newRegions)
+  // onUpdateRegions(newRegions)
 }
 
 function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
