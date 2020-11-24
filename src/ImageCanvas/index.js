@@ -41,6 +41,7 @@ const useStyles = makeStyles(styles)
 
 type Props = {
   regions: Array<Region>,
+  newRegions: Array<Region>,
   imageSrc?: string,
   videoSrc?: string,
   videoTime?: number,
@@ -74,8 +75,8 @@ type Props = {
   fullImageSegmentationMode?: boolean,
   autoSegmentationOptions?: Object,
   modifyingAllowedArea?: boolean,
-
   onChangeRegion: (Region) => any,
+  onUpdateRegions: Array<Region>,
   onBeginRegionEdit: (Region) => any,
   onCloseRegionEdit: (Region) => any,
   onDeleteRegion: (Region) => any,
@@ -107,6 +108,7 @@ const getDefaultMat = (allowedArea = null, { iw, ih } = {}) => {
 
 export const ImageCanvas = ({
   regions,
+  newRegions,
   imageSrc,
   videoSrc,
   videoTime,
@@ -132,6 +134,7 @@ export const ImageCanvas = ({
   autoSegmentationOptions,
   onImageOrVideoLoaded,
   onChangeRegion,
+  onUpdateRegions,
   onBeginRegionEdit,
   onCloseRegionEdit,
   onBeginBoxTransform,
@@ -393,12 +396,14 @@ export const ImageCanvas = ({
         <PreventScrollToParents key="regionTags">
           <RegionTags
             regions={regions}
+            newRegions={newRegions}
             projectRegionBox={projectRegionBox}
             mouseEvents={mouseEvents}
             regionClsList={regionClsList}
             regionTagList={regionTagList}
             onBeginRegionEdit={onBeginRegionEdit}
             onChangeRegion={onChangeRegion}
+            onUpdateRegions={onUpdateRegions}
             onCloseRegionEdit={onCloseRegionEdit}
             onDeleteRegion={onDeleteRegion}
             layoutParams={layoutParams}
@@ -422,9 +427,11 @@ export const ImageCanvas = ({
             allowedClasses={regionClsList}
             allowedTags={regionTagList}
             onChange={onChangeRegion}
+            onUpdateRegions={onUpdateRegions}
             onDelete={onDeleteRegion}
             editing
             region={highlightedRegion}
+            newRegions={newRegions}
             imageSrc={imageSrc}
             customCloseRegion={customCloseRegion}
             customOpenRegion={customOpenRegion}

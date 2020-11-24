@@ -137,22 +137,15 @@ export default (state: MainLayoutState, action: Action) => {
       if (!isEqual(oldRegion.tags, action.region.tags)) {
         state = saveToHistory(state, "Change Region Tags")
       }
-      console.log(action.region,'action.region')
-      if(action.region.new_id){
-        let newRegionData = {...action.region, id: action.region.new_id}
-        console.log(newRegionData,'newRegionData')
-        return setIn(
-            state,
-            [...pathToActiveImage, "regions", regionIndex],
-            newRegionData
-        )
-      }else {
-        return setIn(
-            state,
-            [...pathToActiveImage, "regions", regionIndex],
-            action.region
-        )
-      }
+      return setIn(
+          state,
+          [...pathToActiveImage, "regions", regionIndex],
+          action.region
+      )
+    }
+    case "UPDATE_REGIONS": {
+      let newRegions = action.regions;
+      return setIn(state, [...pathToActiveImage,"regions"], newRegions)
     }
     case "CHANGE_IMAGE": {
       if (!activeImage) return state

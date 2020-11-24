@@ -143,15 +143,13 @@ export default (function (state, action) {
           state = saveToHistory(state, "Change Region Tags");
         }
 
-        if (action.region.new_id) {
-          var newRegionData = _objectSpread({}, action.region, {
-            id: action.region.new_id
-          });
+        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), action.region);
+      }
 
-          return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), newRegionData);
-        } else {
-          return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), action.region);
-        }
+    case "UPDATE_REGIONS":
+      {
+        var newRegions = action.regions;
+        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), newRegions);
       }
 
     case "CHANGE_IMAGE":
@@ -823,7 +821,8 @@ export default (function (state, action) {
         var _regionIndex14 = getRegionIndex(action.region);
 
         if (_regionIndex14 === null) return state;
-        var newRegions = setIn(activeImage.regions.map(function (r) {
+
+        var _newRegions = setIn(activeImage.regions.map(function (r) {
           return _objectSpread({}, r, {
             highlighted: false,
             editingLabels: false
@@ -832,7 +831,8 @@ export default (function (state, action) {
           highlighted: true,
           editingLabels: true
         }));
-        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), newRegions);
+
+        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), _newRegions);
       }
 
     case "CLOSE_REGION_EDITOR":

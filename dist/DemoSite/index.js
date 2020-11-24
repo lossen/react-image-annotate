@@ -31,7 +31,7 @@ export default (function () {
       changeAnnotatorOpen(false);
     },
     customCloseRegion: function customCloseRegion(region) {
-      console.log(region, 'test customCloseRegion');
+      return 25;
     },
     customDeleteRegion: function customDeleteRegion(region) {
       console.log(region, 'test customDeleteRegion');
@@ -45,7 +45,25 @@ export default (function () {
     },
     customOpenRegion: function customOpenRegion(region_id) {
       return console.log(region_id, 'customOpenRegion');
-    }
+    },
+    newRegions: [{
+      type: "box",
+      x: 0.25,
+      y: 0.25,
+      w: 0.5,
+      h: 0.5,
+      color: "#00f",
+      id: 222
+    }, {
+      type: "box",
+      x: 0.8,
+      y: 0.25,
+      w: 0.1,
+      h: 0.1,
+      highlighted: true,
+      color: "#00f",
+      id: 333
+    }]
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {

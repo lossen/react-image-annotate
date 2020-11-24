@@ -39,6 +39,7 @@ type Props = {
   showTags?: boolean,
   selectedImage?: string | number,
   images?: Array<Image>,
+  newRegions?: Array<Region>,
   showPointDistances?: boolean,
   pointDistancePrecision?: number,
   RegionEditLabel?: Node,
@@ -62,6 +63,7 @@ type Props = {
 
 export const Annotator = ({
   images,
+  newRegions,
   allowedArea,
   selectedImage = images && images.length > 0 ? 0 : undefined,
   showPointDistances,
@@ -119,6 +121,7 @@ export const Annotator = ({
     makeImmutable({
       annotationType,
       showTags,
+      newRegions,
       allowedArea,
       showPointDistances,
       pointDistancePrecision,

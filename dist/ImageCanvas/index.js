@@ -41,6 +41,7 @@ var getDefaultMat = function getDefaultMat() {
 
 export var ImageCanvas = function ImageCanvas(_ref2) {
   var regions = _ref2.regions,
+      newRegions = _ref2.newRegions,
       imageSrc = _ref2.imageSrc,
       videoSrc = _ref2.videoSrc,
       videoTime = _ref2.videoTime,
@@ -83,6 +84,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       autoSegmentationOptions = _ref2.autoSegmentationOptions,
       onImageOrVideoLoaded = _ref2.onImageOrVideoLoaded,
       onChangeRegion = _ref2.onChangeRegion,
+      onUpdateRegions = _ref2.onUpdateRegions,
       onBeginRegionEdit = _ref2.onBeginRegionEdit,
       onCloseRegionEdit = _ref2.onCloseRegionEdit,
       onBeginBoxTransform = _ref2.onBeginBoxTransform,
@@ -340,12 +342,14 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     key: "regionTags"
   }, /*#__PURE__*/React.createElement(RegionTags, {
     regions: regions,
+    newRegions: newRegions,
     projectRegionBox: projectRegionBox,
     mouseEvents: mouseEvents,
     regionClsList: regionClsList,
     regionTagList: regionTagList,
     onBeginRegionEdit: onBeginRegionEdit,
     onChangeRegion: onChangeRegion,
+    onUpdateRegions: onUpdateRegions,
     onCloseRegionEdit: onCloseRegionEdit,
     onDeleteRegion: onDeleteRegion,
     layoutParams: layoutParams,
@@ -367,9 +371,11 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     allowedClasses: regionClsList,
     allowedTags: regionTagList,
     onChange: onChangeRegion,
+    onUpdateRegions: onUpdateRegions,
     onDelete: onDeleteRegion,
     editing: true,
     region: highlightedRegion,
+    newRegions: newRegions,
     imageSrc: imageSrc,
     customCloseRegion: customCloseRegion,
     customOpenRegion: customOpenRegion,

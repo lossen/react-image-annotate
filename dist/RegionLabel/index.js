@@ -18,16 +18,10 @@ import DeleteIcon from '../static/delete-icon.svg';
 import LinkIcon from '../static/link-icon.svg';
 var useStyles = makeStyles(styles);
 
-function handleCloseRegionEditor(onClose, region, customCloseRegion, onChange) {
-  onClose(region); // customCloseRegion(region)
-
-  var newId = customCloseRegion(region);
-
-  if (newId) {
-    onChange(_objectSpread({}, region, {
-      new_id: newId
-    }));
-  }
+function handleCloseRegionEditor(onClose, region, customCloseRegion, onUpdateRegions, newRegions) {
+  onClose(region);
+  customCloseRegion(region);
+  onUpdateRegions(newRegions);
 }
 
 function handleDeleteRegionEditor(onDelete, region, customDeleteRegion) {
@@ -42,6 +36,7 @@ function handleOpenRegionEditor(onOpen, region, customOpenRegion) {
 
 export var RegionLabel = function RegionLabel(_ref) {
   var region = _ref.region,
+      newRegions = _ref.newRegions,
       editing = _ref.editing,
       allowedClasses = _ref.allowedClasses,
       disableClasses = _ref.disableClasses,
@@ -50,6 +45,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       allowedTags = _ref.allowedTags,
       onDelete = _ref.onDelete,
       _onChange = _ref.onChange,
+      onUpdateRegions = _ref.onUpdateRegions,
       onClose = _ref.onClose,
       onOpen = _ref.onOpen,
       onRegionClassAdded = _ref.onRegionClassAdded,
@@ -59,7 +55,6 @@ export var RegionLabel = function RegionLabel(_ref) {
       customOpenRegion = _ref.customOpenRegion,
       regionName = _ref.regionName;
   var classes = useStyles();
-  console.log(region, 'region');
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
       return !editing ? handleOpenRegionEditor(onOpen, region, customOpenRegion) : null;
@@ -185,7 +180,7 @@ export var RegionLabel = function RegionLabel(_ref) {
   })), onClose && /*#__PURE__*/React.createElement("button", {
     className: classes.buttonSubmit,
     onClick: function onClick() {
-      return handleCloseRegionEditor(onClose, region, customCloseRegion, _onChange);
+      return handleCloseRegionEditor(onClose, region, customCloseRegion, onUpdateRegions, newRegions);
     }
   }, "Save"))));
 };
