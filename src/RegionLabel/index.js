@@ -26,6 +26,7 @@ type Props = {
   region: Region,
   editing?: boolean,
   allowedClasses?: Array<string>,
+  newRegions?: Array<Region>,
   disableClasses?: boolean,
   disableTags?: boolean,
   disableRegionType?: boolean,
@@ -40,9 +41,10 @@ type Props = {
   onRegionClassAdded: () => {},
 }
 
-function handleCloseRegionEditor(onClose,region,customCloseRegion) {
+function handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions) {
   onClose(region)
   customCloseRegion(region)
+  onUpdateRegions(newRegions)
 }
 
 function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
@@ -57,6 +59,7 @@ function handleOpenRegionEditor(onOpen,region,customOpenRegion) {
 
 export const RegionLabel = ({
   region,
+  newRegions,
   editing,
   allowedClasses,
   disableClasses,
@@ -65,6 +68,7 @@ export const RegionLabel = ({
   allowedTags,
   onDelete,
   onChange,
+  onUpdateRegions,
   onClose,
   onOpen,
   onRegionClassAdded,
@@ -180,7 +184,7 @@ export const RegionLabel = ({
             {onClose && (
                 <button
                     className={classes.buttonSubmit}
-                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion)}
+                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions)}
                 >
                   Save
                 </button>

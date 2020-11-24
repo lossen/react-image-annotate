@@ -21,6 +21,8 @@ export const RegionTags = ({
   regionTagList,
   onBeginRegionEdit,
   onChangeRegion,
+    onUpdateRegions,
+    newRegions,
   onCloseRegionEdit,
   onDeleteRegion,
   layoutParams,
@@ -118,11 +120,13 @@ export const RegionTags = ({
               allowedTags={regionTagList}
               onOpen={onBeginRegionEdit}
               onChange={onChangeRegion}
+              onUpdateRegions={onUpdateRegions}
               onClose={onCloseRegionEdit}
               onDelete={onDeleteRegion}
               editing={region.editingLabels}
               region={region}
               regions={regions}
+              newRegions={newRegions}
               imageSrc={imageSrc}
               onRegionClassAdded={onRegionClassAdded}
               customCloseRegion={customCloseRegion}

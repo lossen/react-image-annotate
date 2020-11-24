@@ -12,6 +12,7 @@ import useEventCallback from "use-event-callback";
 import makeImmutable, { without } from "seamless-immutable";
 export var Annotator = function Annotator(_ref) {
   var images = _ref.images,
+      newRegions = _ref.newRegions,
       allowedArea = _ref.allowedArea,
       _ref$selectedImage = _ref.selectedImage,
       selectedImage = _ref$selectedImage === void 0 ? images && images.length > 0 ? 0 : undefined : _ref$selectedImage,
@@ -81,6 +82,7 @@ export var Annotator = function Annotator(_ref) {
   var _useReducer = useReducer(historyHandler(combineReducers(annotationType === "image" ? imageReducer : videoReducer, generalReducer)), makeImmutable(_objectSpread({
     annotationType: annotationType,
     showTags: showTags,
+    newRegions: newRegions,
     allowedArea: allowedArea,
     showPointDistances: showPointDistances,
     pointDistancePrecision: pointDistancePrecision,
@@ -151,7 +153,6 @@ export var Annotator = function Annotator(_ref) {
     });
   }, [selectedImage]);
   if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
-  console.log(state.images, 'state.images from annotator');
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,
     alwaysShowNextButton: Boolean(onNextImage),

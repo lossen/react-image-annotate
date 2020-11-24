@@ -128,12 +128,7 @@ export default (function (state, action) {
       {
         var regionIndex = getRegionIndex(action.region);
         if (regionIndex === null) return state;
-        var oldRegion = activeImage.regions[regionIndex]; // if (oldRegion.regionName !== action.region.regionName) {
-        //   state = setIn(
-        //       state, ["regionName"],
-        //       action.region.regionName
-        //   )
-        // }
+        var oldRegion = activeImage.regions[regionIndex];
 
         if (oldRegion.cls !== action.region.cls) {
           state = saveToHistory(state, "Change Region Classification");
@@ -149,6 +144,12 @@ export default (function (state, action) {
         }
 
         return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions", regionIndex]), action.region);
+      }
+
+    case "UPDATE_REGIONS":
+      {
+        var newRegions = action.regions;
+        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), newRegions);
       }
 
     case "CHANGE_IMAGE":
@@ -558,7 +559,7 @@ export default (function (state, action) {
 
         var newRegion;
         var defaultRegionCls = undefined,
-            defaultRegionColor = "#7b82ff";
+            defaultRegionColor = "#fff";
 
         if (activeImage && (activeImage.regions || []).length > 0) {
           defaultRegionCls = activeImage.regions.slice(-1)[0].cls;
@@ -820,7 +821,8 @@ export default (function (state, action) {
         var _regionIndex14 = getRegionIndex(action.region);
 
         if (_regionIndex14 === null) return state;
-        var newRegions = setIn(activeImage.regions.map(function (r) {
+
+        var _newRegions = setIn(activeImage.regions.map(function (r) {
           return _objectSpread({}, r, {
             highlighted: false,
             editingLabels: false
@@ -829,7 +831,8 @@ export default (function (state, action) {
           highlighted: true,
           editingLabels: true
         }));
-        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), newRegions);
+
+        return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), _newRegions);
       }
 
     case "CLOSE_REGION_EDITOR":
