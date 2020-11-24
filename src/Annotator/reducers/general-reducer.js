@@ -137,8 +137,10 @@ export default (state: MainLayoutState, action: Action) => {
       if (!isEqual(oldRegion.tags, action.region.tags)) {
         state = saveToHistory(state, "Change Region Tags")
       }
+      console.log(action.region,'action.region')
       if(action.region.new_id){
         let newRegionData = {...action.region, id: action.region.new_id}
+        console.log(newRegionData,'newRegionData')
         return setIn(
             state,
             [...pathToActiveImage, "regions", regionIndex],

@@ -26,7 +26,7 @@ export default () => {
               changeAnnotatorOpen(false)
             }}
             customCloseRegion={(region) => {
-              console.log(region,'test customCloseRegion')
+              return 25;
             }}
             customDeleteRegion={(region) => {
               console.log(region,'test customDeleteRegion')
