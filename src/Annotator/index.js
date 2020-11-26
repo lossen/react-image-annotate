@@ -155,7 +155,7 @@ export const Annotator = ({
       ...(annotationType === "image"
         ? {
             selectedImage,
-            // images,
+            images,
             selectedImageFrameTime:
               images && images.length > 0 ? images[0].frameTime : undefined,
           }
@@ -198,6 +198,9 @@ export const Annotator = ({
   if (!images && !videoSrc)
     return 'Missing required prop "images" or "videoSrc"'
 
+  console.log(state,'state from annotator')
+  console.log(images,'images from annotator')
+
   return (
     <SettingsProvider>
       <MainLayout
@@ -207,7 +210,6 @@ export const Annotator = ({
         state={state}
         dispatch={dispatch}
         onRegionClassAdded={onRegionClassAdded}
-        images={images}
       />
     </SettingsProvider>
   )

@@ -62,7 +62,6 @@ export const MainLayout = ({
   alwaysShowPrevButton = false,
   RegionEditLabel,
   onRegionClassAdded,
-  images
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -112,11 +111,9 @@ export const MainLayout = ({
     }
   }, [])
 
-  console.log(images,'images')
   const canvas = (
     <ImageCanvas
       {...settings}
-      images={images}
       showCrosshairs={
         settings.showCrosshairs &&
         !["select", "pan", "zoom"].includes(state.selectedTool)

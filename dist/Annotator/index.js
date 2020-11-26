@@ -115,7 +115,7 @@ export var Annotator = function Annotator(_ref) {
     keypointDefinitions: keypointDefinitions
   }, annotationType === "image" ? {
     selectedImage: selectedImage,
-    // images,
+    images: images,
     selectedImageFrameTime: images && images.length > 0 ? images[0].frameTime : undefined
   } : {
     videoSrc: videoSrc,
@@ -153,14 +153,15 @@ export var Annotator = function Annotator(_ref) {
     });
   }, [selectedImage]);
   if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
+  console.log(state, 'state from annotator');
+  console.log(images, 'images from annotator');
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,
     alwaysShowNextButton: Boolean(onNextImage),
     alwaysShowPrevButton: Boolean(onPrevImage),
     state: state,
     dispatch: dispatch,
-    onRegionClassAdded: onRegionClassAdded,
-    images: images
+    onRegionClassAdded: onRegionClassAdded
   }));
 };
 export default Annotator;

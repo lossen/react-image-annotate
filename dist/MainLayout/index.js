@@ -53,8 +53,7 @@ export var MainLayout = function MainLayout(_ref2) {
       _ref2$alwaysShowPrevB = _ref2.alwaysShowPrevButton,
       alwaysShowPrevButton = _ref2$alwaysShowPrevB === void 0 ? false : _ref2$alwaysShowPrevB,
       RegionEditLabel = _ref2.RegionEditLabel,
-      onRegionClassAdded = _ref2.onRegionClassAdded,
-      images = _ref2.images;
+      onRegionClassAdded = _ref2.onRegionClassAdded;
   var classes = useStyles();
   var settings = useSettings();
   var fullScreenHandle = useFullScreenHandle();
@@ -118,9 +117,7 @@ export var MainLayout = function MainLayout(_ref2) {
       e.target.focus();
     }
   }, []);
-  console.log(images, 'images');
   var canvas = /*#__PURE__*/React.createElement(ImageCanvas, Object.assign({}, settings, {
-    images: images,
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
     showMask: state.showMask,
