@@ -15,6 +15,7 @@ import getLandmarksWithTransform from "../../utils/get-landmarks-with-transform"
 const getRandomId = () => Math.random().toString().split(".")[1]
 
 export default (state: MainLayoutState, action: Action) => {
+  console.log(action,'action')
   if (
     state.allowedArea &&
     state.selectedTool !== "modify-allowed-area" &&
@@ -146,6 +147,10 @@ export default (state: MainLayoutState, action: Action) => {
     case "UPDATE_REGIONS": {
       let newRegions = action.regions;
       return setIn(state, [...pathToActiveImage,"regions"], newRegions)
+    }
+    case "UPDATE_IMAGES": {
+      console.log(state,'state from UPDATE_IMAGES action')
+      return setIn(state, ["images"], action.images)
     }
     case "CHANGE_IMAGE": {
       if (!activeImage) return state

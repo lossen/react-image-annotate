@@ -18,6 +18,8 @@ var getRandomId = function getRandomId() {
 };
 
 export default (function (state, action) {
+  console.log(action, 'action');
+
   if (state.allowedArea && state.selectedTool !== "modify-allowed-area" && ["MOUSE_DOWN", "MOUSE_UP", "MOUSE_MOVE"].includes(action.type)) {
     var aa = state.allowedArea;
     action.x = clamp(action.x, aa.x, aa.x + aa.w);
@@ -150,6 +152,12 @@ export default (function (state, action) {
       {
         var newRegions = action.regions;
         return setIn(state, [].concat(_toConsumableArray(pathToActiveImage), ["regions"]), newRegions);
+      }
+
+    case "UPDATE_IMAGES":
+      {
+        console.log(state, 'state from UPDATE_IMAGES action');
+        return setIn(state, ["images"], action.images);
       }
 
     case "CHANGE_IMAGE":

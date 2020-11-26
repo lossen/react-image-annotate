@@ -145,16 +145,33 @@ export var Annotator = function Annotator(_ref) {
     });
   });
   useEffect(function () {
-    console.log('useEffect from annotator');
+    console.log('useEffect SELECT_IMAGE from annotator');
     if (selectedImage === undefined) return;
     dispatchToReducer({
       type: "SELECT_IMAGE",
       imageIndex: selectedImage,
       image: state.images[selectedImage]
     });
-  }, [selectedImage, state.images]);
-  if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"'; // console.log(state,'state from annotator')
-  // console.log(images,'images from annotator')
+  }, [selectedImage]); // useEffect(() => {
+  //   console.log('useEffect UPDATE_REGIONS from annotator')
+  //   if (selectedImage === undefined) return
+  //   dispatchToReducer({
+  //     type: "UPDATE_REGIONS",
+  //     regions: newRegions,
+  //   })
+  // }, [newRegions])
+  //
+
+  useEffect(function () {
+    console.log('useEffect UPDATE_IMAGES from annotator');
+    dispatchToReducer({
+      type: "UPDATE_IMAGES",
+      images: images
+    });
+  }, [images]);
+  if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"'; // console.log(state.images[0].regions,'state.images from annotator')
+  // console.log(images[0].regions,'images from annotator')
+  // console.log(newRegions,'newRegions from annotator')
 
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,

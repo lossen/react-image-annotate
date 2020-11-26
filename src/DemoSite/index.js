@@ -51,16 +51,6 @@ export default () => {
                     color: "#00f",
                     id: 222,
                   },
-                  {
-                    type: "box",
-                    x: 0.8,
-                    y: 0.25,
-                    w: 0.1,
-                    h: 0.1,
-                    highlighted: true,
-                    color: "#00f",
-                    id: 333,
-                  },
                 ]
               }
             ]}
