@@ -46,6 +46,28 @@ export default (function () {
     customOpenRegion: function customOpenRegion(region_id) {
       return console.log(region_id, 'customOpenRegion');
     },
+    images: [{
+      src: "https://images.unsplash.com/photo-1496905583330-eb54c7e5915a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      name: "Image 1",
+      regions: [{
+        type: "box",
+        x: 0.25,
+        y: 0.25,
+        w: 0.5,
+        h: 0.5,
+        color: "#00f",
+        id: 222
+      }, {
+        type: "box",
+        x: 0.8,
+        y: 0.25,
+        w: 0.1,
+        h: 0.1,
+        highlighted: true,
+        color: "#00f",
+        id: 333
+      }]
+    }],
     newRegions: [{
       type: "box",
       x: 0.25,

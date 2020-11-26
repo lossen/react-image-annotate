@@ -145,16 +145,17 @@ export var Annotator = function Annotator(_ref) {
     });
   });
   useEffect(function () {
+    console.log('useEffect from annotator');
     if (selectedImage === undefined) return;
     dispatchToReducer({
       type: "SELECT_IMAGE",
       imageIndex: selectedImage,
       image: state.images[selectedImage]
     });
-  }, [selectedImage]);
-  if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
-  console.log(state, 'state from annotator');
-  console.log(images, 'images from annotator');
+  }, [selectedImage, state.images]);
+  if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"'; // console.log(state,'state from annotator')
+  // console.log(images,'images from annotator')
+
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,
     alwaysShowNextButton: Boolean(onNextImage),
