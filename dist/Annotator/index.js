@@ -115,7 +115,7 @@ export var Annotator = function Annotator(_ref) {
     keypointDefinitions: keypointDefinitions
   }, annotationType === "image" ? {
     selectedImage: selectedImage,
-    images: images,
+    // images,
     selectedImageFrameTime: images && images.length > 0 ? images[0].frameTime : undefined
   } : {
     videoSrc: videoSrc,
@@ -159,7 +159,8 @@ export var Annotator = function Annotator(_ref) {
     alwaysShowPrevButton: Boolean(onPrevImage),
     state: state,
     dispatch: dispatch,
-    onRegionClassAdded: onRegionClassAdded
+    onRegionClassAdded: onRegionClassAdded,
+    images: images
   }));
 };
 export default Annotator;

@@ -155,7 +155,7 @@ export const Annotator = ({
       ...(annotationType === "image"
         ? {
             selectedImage,
-            images,
+            // images,
             selectedImageFrameTime:
               images && images.length > 0 ? images[0].frameTime : undefined,
           }
@@ -207,6 +207,7 @@ export const Annotator = ({
         state={state}
         dispatch={dispatch}
         onRegionClassAdded={onRegionClassAdded}
+        images={images}
       />
     </SettingsProvider>
   )
