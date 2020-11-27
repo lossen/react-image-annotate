@@ -18,8 +18,6 @@ var getRandomId = function getRandomId() {
 };
 
 export default (function (state, action) {
-  console.log(action, 'action');
-
   if (state.allowedArea && state.selectedTool !== "modify-allowed-area" && ["MOUSE_DOWN", "MOUSE_UP", "MOUSE_MOVE"].includes(action.type)) {
     var aa = state.allowedArea;
     action.x = clamp(action.x, aa.x, aa.x + aa.w);
@@ -156,7 +154,6 @@ export default (function (state, action) {
 
     case "UPDATE_IMAGES":
       {
-        console.log(state, 'state from UPDATE_IMAGES action');
         return setIn(state, ["images"], action.images);
       }
 

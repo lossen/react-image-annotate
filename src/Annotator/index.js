@@ -187,8 +187,6 @@ export const Annotator = ({
   })
 
   useEffect(() => {
-      console.log('useEffect SELECT_IMAGE from annotator')
-
     if (selectedImage === undefined) return
     dispatchToReducer({
       type: "SELECT_IMAGE",
@@ -197,17 +195,7 @@ export const Annotator = ({
     })
   }, [selectedImage])
 
-  // useEffect(() => {
-  //   console.log('useEffect UPDATE_REGIONS from annotator')
-  //   if (selectedImage === undefined) return
-  //   dispatchToReducer({
-  //     type: "UPDATE_REGIONS",
-  //     regions: newRegions,
-  //   })
-  // }, [newRegions])
-  //
   useEffect(() => {
-    console.log('useEffect UPDATE_IMAGES from annotator')
     dispatchToReducer({
       type: "UPDATE_IMAGES",
       images: images,
@@ -217,9 +205,6 @@ export const Annotator = ({
   if (!images && !videoSrc)
     return 'Missing required prop "images" or "videoSrc"'
 
-  // console.log(state.images[0].regions,'state.images from annotator')
-  // console.log(images[0].regions,'images from annotator')
-  // console.log(newRegions,'newRegions from annotator')
 
   return (
     <SettingsProvider>
