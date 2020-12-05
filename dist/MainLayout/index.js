@@ -183,7 +183,12 @@ export var MainLayout = function MainLayout(_ref2) {
         type: "HEADER_BUTTON_CLICKED",
         buttonName: item.name
       });
-    } else if (!state.readOnly) dispatch({
+    } else if (item.name === "create-box") {
+      if (!state.readOnly) dispatch({
+        type: "SELECT_TOOL",
+        selectedTool: item.name
+      });
+    } else dispatch({
       type: "SELECT_TOOL",
       selectedTool: item.name
     });
