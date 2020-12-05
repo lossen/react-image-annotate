@@ -159,7 +159,6 @@ export default (function (state, action) {
 
     case "UPDATE_READ_ONLY":
       {
-        console.log(action, 'action from UPDATE_READ_ONLY');
         return setIn(state, ["readOnly"], action.readOnly);
       }
 
