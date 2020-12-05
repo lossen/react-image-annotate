@@ -119,6 +119,7 @@ export const MainLayout = ({
         !["select", "pan", "zoom"].includes(state.selectedTool)
       }
       key={state.selectedImage}
+      readOnly={state.readOnly}
       showMask={state.showMask}
       fullImageSegmentationMode={state.fullImageSegmentationMode}
       autoSegmentationOptions={state.autoSegmentationOptions}
@@ -198,7 +199,7 @@ export const MainLayout = ({
     } else if (item.name === "Window") {
       fullScreenHandle.exit()
       dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
-    }else dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
+    }else if(!state.readOnly) dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
   })
 
   const onClickHeaderItem = useEventCallback((item) => {

@@ -13,6 +13,7 @@ import makeImmutable, { without } from "seamless-immutable";
 export var Annotator = function Annotator(_ref) {
   var images = _ref.images,
       newRegions = _ref.newRegions,
+      readOnly = _ref.readOnly,
       allowedArea = _ref.allowedArea,
       _ref$selectedImage = _ref.selectedImage,
       selectedImage = _ref$selectedImage === void 0 ? images && images.length > 0 ? 0 : undefined : _ref$selectedImage,
@@ -83,6 +84,7 @@ export var Annotator = function Annotator(_ref) {
     annotationType: annotationType,
     showTags: showTags,
     newRegions: newRegions,
+    readOnly: readOnly,
     allowedArea: allowedArea,
     showPointDistances: showPointDistances,
     pointDistancePrecision: pointDistancePrecision,

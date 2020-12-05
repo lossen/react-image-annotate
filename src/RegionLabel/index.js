@@ -76,7 +76,8 @@ export const RegionLabel = ({
   onLinkResource,
   customDeleteRegion,
   customOpenRegion,
-  regionName
+  regionName,
+  readOnly
 }: Props) => {
   const classes = useStyles()
 
@@ -172,19 +173,22 @@ export const RegionLabel = ({
               onChange({
                 ...(region: any),
                 regionName: newName.target.value
-              })
-          }/>
+              })}
+                 readOnly={readOnly}
+          />
           <div className={classes.regionPopupFooter}>
-            <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}>
+            <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
+            disabled={readOnly}>
               <ReactSVG src={DeleteIcon}/>
             </button>
-            {onLinkResource && <button className={classes.btnSmall} onClick={onLinkResource}>
+            {onLinkResource && <button className={classes.btnSmall} onClick={onLinkResource} disabled={readOnly}>
               <ReactSVG src={LinkIcon}/>
             </button>}
             {onClose && (
                 <button
                     className={classes.buttonSubmit}
                     onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions)}
+                    disabled={readOnly}
                 >
                   Save
                 </button>

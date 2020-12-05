@@ -75,6 +75,7 @@ export default () => {
                 id: 333,
               },
             ]}
+            readOnly={true}
           />
         </ErrorBoundaryDialog>
       ) : (

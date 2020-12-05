@@ -42,6 +42,7 @@ var getDefaultMat = function getDefaultMat() {
 export var ImageCanvas = function ImageCanvas(_ref2) {
   var regions = _ref2.regions,
       newRegions = _ref2.newRegions,
+      readOnly = _ref2.readOnly,
       imageSrc = _ref2.imageSrc,
       videoSrc = _ref2.videoSrc,
       videoTime = _ref2.videoTime,
@@ -362,7 +363,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,
     disableTags: disableTags,
-    disableRegionType: disableRegionType
+    disableRegionType: disableRegionType,
+    readOnly: readOnly
   })), !showTags && highlightedRegion && /*#__PURE__*/React.createElement("div", {
     key: "topLeftTag",
     className: classes.fixedRegionLabel
@@ -383,7 +385,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     customDeleteRegion: customDeleteRegion,
     disableClasses: disableClasses,
     disableTags: disableTags,
-    disableRegionType: disableRegionType
+    disableRegionType: disableRegionType,
+    readOnly: readOnly
   })), zoomWithPrimary && zoomBox !== null && /*#__PURE__*/React.createElement("div", {
     key: "zoomBox",
     style: {

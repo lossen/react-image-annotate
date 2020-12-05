@@ -52,7 +52,8 @@ export var RegionLabel = function RegionLabel(_ref) {
       onLinkResource = _ref.onLinkResource,
       customDeleteRegion = _ref.customDeleteRegion,
       customOpenRegion = _ref.customOpenRegion,
-      regionName = _ref.regionName;
+      regionName = _ref.regionName,
+      readOnly = _ref.readOnly;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
@@ -161,26 +162,30 @@ export var RegionLabel = function RegionLabel(_ref) {
       return _onChange(_objectSpread({}, region, {
         regionName: newName.target.value
       }));
-    }
+    },
+    readOnly: readOnly
   }), /*#__PURE__*/React.createElement("div", {
     className: classes.regionPopupFooter
   }, /*#__PURE__*/React.createElement("button", {
     className: classes.btnSmall,
     onClick: function onClick() {
       return handleDeleteRegionEditor(onDelete, region, customDeleteRegion);
-    }
+    },
+    disabled: readOnly
   }, /*#__PURE__*/React.createElement(ReactSVG, {
     src: DeleteIcon
   })), onLinkResource && /*#__PURE__*/React.createElement("button", {
     className: classes.btnSmall,
-    onClick: onLinkResource
+    onClick: onLinkResource,
+    disabled: readOnly
   }, /*#__PURE__*/React.createElement(ReactSVG, {
     src: LinkIcon
   })), onClose && /*#__PURE__*/React.createElement("button", {
     className: classes.buttonSubmit,
     onClick: function onClick() {
       return handleCloseRegionEditor(onClose, region, customCloseRegion, onUpdateRegions, newRegions);
-    }
+    },
+    disabled: readOnly
   }, "Save"))));
 };
 export default memo(RegionLabel, function (prevProps, nextProps) {

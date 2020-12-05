@@ -120,6 +120,7 @@ export var MainLayout = function MainLayout(_ref2) {
   var canvas = /*#__PURE__*/React.createElement(ImageCanvas, Object.assign({}, settings, {
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
+    readOnly: state.readOnly,
     showMask: state.showMask,
     fullImageSegmentationMode: state.fullImageSegmentationMode,
     autoSegmentationOptions: state.autoSegmentationOptions,
@@ -182,7 +183,7 @@ export var MainLayout = function MainLayout(_ref2) {
         type: "HEADER_BUTTON_CLICKED",
         buttonName: item.name
       });
-    } else dispatch({
+    } else if (!state.readOnly) dispatch({
       type: "SELECT_TOOL",
       selectedTool: item.name
     });

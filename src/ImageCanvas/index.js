@@ -109,6 +109,7 @@ const getDefaultMat = (allowedArea = null, { iw, ih } = {}) => {
 export const ImageCanvas = ({
   regions,
   newRegions,
+  readOnly,
   imageSrc,
   videoSrc,
   videoTime,
@@ -417,6 +418,7 @@ export const ImageCanvas = ({
             disableClasses={disableClasses}
             disableTags={disableTags}
             disableRegionType={disableRegionType}
+            readOnly={readOnly}
           />
         </PreventScrollToParents>
       )}
@@ -440,6 +442,7 @@ export const ImageCanvas = ({
             disableClasses={disableClasses}
             disableTags={disableTags}
             disableRegionType={disableRegionType}
+            readOnly={readOnly}
           />
         </div>
       )}

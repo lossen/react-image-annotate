@@ -76,7 +76,8 @@ export default (function () {
       highlighted: true,
       color: "#00f",
       id: 333
-    }]
+    }],
+    readOnly: true
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {

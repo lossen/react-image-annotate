@@ -54,6 +54,7 @@ type Props = {
   videoName?: string,
   keypointDefinitions: KeypointsDefinition,
   fullImageSegmentationMode?: boolean,
+  readOnly?: boolean,
   disableRegionType?: boolean,
   disableTopNav?: boolean,
   autoSegmentationOptions?:
@@ -64,6 +65,7 @@ type Props = {
 export const Annotator = ({
   images,
   newRegions,
+  readOnly,
   allowedArea,
   selectedImage = images && images.length > 0 ? 0 : undefined,
   showPointDistances,
@@ -122,6 +124,7 @@ export const Annotator = ({
       annotationType,
       showTags,
       newRegions,
+      readOnly,
       allowedArea,
       showPointDistances,
       pointDistancePrecision,
