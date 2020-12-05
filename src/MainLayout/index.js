@@ -52,6 +52,7 @@ type Props = {
   dispatch: (Action) => any,
   alwaysShowNextButton?: boolean,
   alwaysShowPrevButton?: boolean,
+  readOnly?: boolean,
   onRegionClassAdded: () => {},
 }
 
@@ -62,6 +63,7 @@ export const MainLayout = ({
   alwaysShowPrevButton = false,
   RegionEditLabel,
   onRegionClassAdded,
+  readOnly,
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -119,7 +121,7 @@ export const MainLayout = ({
         !["select", "pan", "zoom"].includes(state.selectedTool)
       }
       key={state.selectedImage}
-      readOnly={state.readOnly}
+      readOnly={readOnly}
       showMask={state.showMask}
       fullImageSegmentationMode={state.fullImageSegmentationMode}
       autoSegmentationOptions={state.autoSegmentationOptions}
@@ -200,7 +202,7 @@ export const MainLayout = ({
       fullScreenHandle.exit()
       dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
     }else if(item.name === "create-box") {
-      if(!state.readOnly) dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
+      if(!readOnly) dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
     }else dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
   })
 

@@ -124,7 +124,7 @@ export const Annotator = ({
       annotationType,
       showTags,
       newRegions,
-      readOnly,
+      // readOnly,
       allowedArea,
       showPointDistances,
       pointDistancePrecision,
@@ -218,6 +218,7 @@ export const Annotator = ({
         state={state}
         dispatch={dispatch}
         onRegionClassAdded={onRegionClassAdded}
+        readOnly={readOnly}
       />
     </SettingsProvider>
   )

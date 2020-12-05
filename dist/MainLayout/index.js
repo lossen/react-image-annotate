@@ -53,7 +53,8 @@ export var MainLayout = function MainLayout(_ref2) {
       _ref2$alwaysShowPrevB = _ref2.alwaysShowPrevButton,
       alwaysShowPrevButton = _ref2$alwaysShowPrevB === void 0 ? false : _ref2$alwaysShowPrevB,
       RegionEditLabel = _ref2.RegionEditLabel,
-      onRegionClassAdded = _ref2.onRegionClassAdded;
+      onRegionClassAdded = _ref2.onRegionClassAdded,
+      readOnly = _ref2.readOnly;
   var classes = useStyles();
   var settings = useSettings();
   var fullScreenHandle = useFullScreenHandle();
@@ -120,7 +121,7 @@ export var MainLayout = function MainLayout(_ref2) {
   var canvas = /*#__PURE__*/React.createElement(ImageCanvas, Object.assign({}, settings, {
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
-    readOnly: state.readOnly,
+    readOnly: readOnly,
     showMask: state.showMask,
     fullImageSegmentationMode: state.fullImageSegmentationMode,
     autoSegmentationOptions: state.autoSegmentationOptions,
@@ -184,7 +185,7 @@ export var MainLayout = function MainLayout(_ref2) {
         buttonName: item.name
       });
     } else if (item.name === "create-box") {
-      if (!state.readOnly) dispatch({
+      if (!readOnly) dispatch({
         type: "SELECT_TOOL",
         selectedTool: item.name
       });

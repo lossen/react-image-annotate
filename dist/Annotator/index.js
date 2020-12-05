@@ -84,7 +84,7 @@ export var Annotator = function Annotator(_ref) {
     annotationType: annotationType,
     showTags: showTags,
     newRegions: newRegions,
-    readOnly: readOnly,
+    // readOnly,
     allowedArea: allowedArea,
     showPointDistances: showPointDistances,
     pointDistancePrecision: pointDistancePrecision,
@@ -167,7 +167,8 @@ export var Annotator = function Annotator(_ref) {
     alwaysShowPrevButton: Boolean(onPrevImage),
     state: state,
     dispatch: dispatch,
-    onRegionClassAdded: onRegionClassAdded
+    onRegionClassAdded: onRegionClassAdded,
+    readOnly: readOnly
   }));
 };
 export default Annotator;
