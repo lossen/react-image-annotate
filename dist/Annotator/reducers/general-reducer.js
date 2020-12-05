@@ -157,6 +157,12 @@ export default (function (state, action) {
         return setIn(state, ["images"], action.images);
       }
 
+    case "UPDATE_READ_ONLY":
+      {
+        console.log(action, 'action from UPDATE_READ_ONLY');
+        return setIn(state, ["readOnly"], action.readOnly);
+      }
+
     case "CHANGE_IMAGE":
       {
         if (!activeImage) return state;

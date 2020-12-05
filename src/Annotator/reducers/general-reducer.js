@@ -150,6 +150,10 @@ export default (state: MainLayoutState, action: Action) => {
     case "UPDATE_IMAGES": {
       return setIn(state, ["images"], action.images)
     }
+    case "UPDATE_READ_ONLY": {
+      console.log(action,'action from UPDATE_READ_ONLY')
+      return setIn(state, ["readOnly"], action.readOnly)
+    }
     case "CHANGE_IMAGE": {
       if (!activeImage) return state
       const { delta } = action

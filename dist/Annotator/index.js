@@ -160,6 +160,12 @@ export var Annotator = function Annotator(_ref) {
       images: images
     });
   }, [images]);
+  useEffect(function () {
+    dispatchToReducer({
+      type: "UPDATE_READ_ONLY",
+      readOnly: readOnly
+    });
+  }, [readOnly]);
   if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {
     RegionEditLabel: RegionEditLabel,

@@ -205,6 +205,13 @@ export const Annotator = ({
     })
   }, [images])
 
+  useEffect(() => {
+    dispatchToReducer({
+      type: "UPDATE_READ_ONLY",
+      readOnly: readOnly,
+    })
+  }, [readOnly])
+
   if (!images && !videoSrc)
     return 'Missing required prop "images" or "videoSrc"'
 
