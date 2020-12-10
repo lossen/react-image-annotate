@@ -46,6 +46,9 @@ export default (function () {
     customOpenRegion: function customOpenRegion(region_id) {
       return console.log(region_id, 'customOpenRegion');
     },
+    customSelectRegion: function customSelectRegion(region) {
+      return console.log(region, 'customSelectRegion');
+    },
     images: [{
       src: "https://images.unsplash.com/photo-1496905583330-eb54c7e5915a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
       name: "Image 1",
@@ -77,7 +80,7 @@ export default (function () {
       color: "#00f",
       id: 333
     }],
-    readOnly: true
+    readOnly: false
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,
     onOpenAnnotator: function onOpenAnnotator(props) {

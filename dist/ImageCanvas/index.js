@@ -92,7 +92,8 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
       onBeginMovePolygonPoint = _ref2.onBeginMovePolygonPoint,
       onAddPolygonPoint = _ref2.onAddPolygonPoint,
       onBeginMoveKeypoint = _ref2.onBeginMoveKeypoint,
-      onSelectRegion = _ref2.onSelectRegion,
+      _onSelectRegion = _ref2.onSelectRegion,
+      customSelectRegion = _ref2.customSelectRegion,
       onBeginMovePoint = _ref2.onBeginMovePoint,
       onDeleteRegion = _ref2.onDeleteRegion,
       onChangeVideoTime = _ref2.onChangeVideoTime,
@@ -290,6 +291,12 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     topLeft: mat.clone().inverse().applyToPoint(0, 0),
     bottomRight: mat.clone().inverse().applyToPoint(iw, ih)
   };
+
+  function handleSelect(region, onSelectRegion, customSelectRegion) {
+    onSelectRegion(region);
+    customSelectRegion(region);
+  }
+
   var highlightedRegion = useMemo(function () {
     var highlightedRegions = regions.filter(function (r) {
       return r.highlighted;
@@ -330,7 +337,9 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     createWithPrimary: createWithPrimary,
     zoomWithPrimary: zoomWithPrimary,
     onBeginMovePoint: onBeginMovePoint,
-    onSelectRegion: onSelectRegion,
+    onSelectRegion: function onSelectRegion(region) {
+      return handleSelect(region, _onSelectRegion, customSelectRegion);
+    },
     layoutParams: layoutParams,
     mat: mat,
     onBeginBoxTransform: onBeginBoxTransform,

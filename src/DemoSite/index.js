@@ -37,6 +37,7 @@ export default () => {
             disableTopNav={true}
             onLinkResource={(region_id) => console.log(region_id,'onLinkResource')}
             customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
+            customSelectRegion={(region) => console.log(region,'customSelectRegion')}
             images={[
               {
                 src: "https://images.unsplash.com/photo-1496905583330-eb54c7e5915a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
@@ -75,7 +76,7 @@ export default () => {
                 id: 333,
               },
             ]}
-            readOnly={true}
+            readOnly={false}
           />
         </ErrorBoundaryDialog>
       ) : (

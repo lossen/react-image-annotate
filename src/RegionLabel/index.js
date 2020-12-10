@@ -54,7 +54,7 @@ function handleDeleteRegionEditor(onDelete,region,customDeleteRegion) {
 
 function handleOpenRegionEditor(onOpen,region,customOpenRegion) {
   onOpen(region)
-  customOpenRegion(region.id)
+  customOpenRegion(region)
 }
 
 export const RegionLabel = ({

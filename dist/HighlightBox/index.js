@@ -39,7 +39,7 @@ var useStyles = makeStyles({
 });
 
 function handleSelectRegion(onSelectRegion, r, customOpenRegion) {
-  customOpenRegion(r.id);
+  customOpenRegion(r);
   onSelectRegion(r);
 }
 

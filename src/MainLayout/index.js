@@ -154,6 +154,7 @@ export const MainLayout = ({
       keypointDefinitions={state.keypointDefinitions}
       disableRegionType={state.disableRegionType}
       customCloseRegion={state.customCloseRegion}
+      customSelectRegion={state.customSelectRegion}
       newRegions={state.newRegions}
       customOpenRegion={state.customOpenRegion}
       customDeleteRegion={state.customDeleteRegion}
@@ -363,6 +364,7 @@ export const MainLayout = ({
               <RegionSelector
                 regions={activeImage ? activeImage.regions : emptyArr}
                 onSelectRegion={action("SELECT_REGION", "region")}
+                customSelectRegion={state.customSelectRegion}
                 onDeleteRegion={action("DELETE_REGION", "region")}
                 onChangeRegion={action("CHANGE_REGION", "region")}
               />,

@@ -146,6 +146,7 @@ export var MainLayout = function MainLayout(_ref2) {
     keypointDefinitions: state.keypointDefinitions,
     disableRegionType: state.disableRegionType,
     customCloseRegion: state.customCloseRegion,
+    customSelectRegion: state.customSelectRegion,
     newRegions: state.newRegions,
     customOpenRegion: state.customOpenRegion,
     customDeleteRegion: state.customDeleteRegion,
@@ -326,6 +327,7 @@ export var MainLayout = function MainLayout(_ref2) {
     React.createElement(RegionSelector, {
       regions: activeImage ? activeImage.regions : emptyArr,
       onSelectRegion: action("SELECT_REGION", "region"),
+      customSelectRegion: state.customSelectRegion,
       onDeleteRegion: action("DELETE_REGION", "region"),
       onChangeRegion: action("CHANGE_REGION", "region")
     }), state.keyframes && /*#__PURE__*/React.createElement(KeyframesSelector, {

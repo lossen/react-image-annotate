@@ -85,6 +85,7 @@ type Props = {
   onBeginMoveKeypoint: (Keypoints, index: number) => any,
   onAddPolygonPoint: (Polygon, point: [number, number], index: number) => any,
   onSelectRegion: (Region) => any,
+  customSelectRegion: (Region) => any,
   onBeginMovePoint: (Point) => any,
   onImageOrVideoLoaded: ({
     naturalWidth: number,
@@ -143,6 +144,7 @@ export const ImageCanvas = ({
   onAddPolygonPoint,
   onBeginMoveKeypoint,
   onSelectRegion,
+  customSelectRegion,
   onBeginMovePoint,
   onDeleteRegion,
   onChangeVideoTime,
@@ -324,6 +326,11 @@ export const ImageCanvas = ({
     bottomRight: mat.clone().inverse().applyToPoint(iw, ih),
   }
 
+  function handleSelect(region,onSelectRegion,customSelectRegion) {
+    onSelectRegion(region)
+    customSelectRegion(region)
+  }
+
   const highlightedRegion = useMemo(() => {
     const highlightedRegions = regions.filter((r) => r.highlighted)
     if (highlightedRegions.length !== 1) return null
@@ -382,7 +389,7 @@ export const ImageCanvas = ({
           createWithPrimary={createWithPrimary}
           zoomWithPrimary={zoomWithPrimary}
           onBeginMovePoint={onBeginMovePoint}
-          onSelectRegion={onSelectRegion}
+          onSelectRegion={(region) => handleSelect(region,onSelectRegion,customSelectRegion)}
           layoutParams={layoutParams}
           mat={mat}
           onBeginBoxTransform={onBeginBoxTransform}
