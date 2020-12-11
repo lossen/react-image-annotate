@@ -37,6 +37,7 @@ export default () => {
             disableTopNav={true}
             onLinkResource={(region_id) => console.log(region_id,'onLinkResource')}
             customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
+            customMouseDown={() => console.log('customMouseDown')}
             customSelectRegion={(region) => console.log(region,'customSelectRegion')}
             images={[
               {

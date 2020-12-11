@@ -113,6 +113,11 @@ export const MainLayout = ({
     }
   }, [])
 
+  function handleMouseDown(params) {
+    state.customMouseDown()
+    dispatch({ type: "MOUSE_DOWN", ...params })
+  }
+
   const canvas = (
     <ImageCanvas
       {...settings}
@@ -160,7 +165,7 @@ export const MainLayout = ({
       customDeleteRegion={state.customDeleteRegion}
       onLinkResource={state.onLinkResource}
       onMouseMove={action("MOUSE_MOVE")}
-      onMouseDown={action("MOUSE_DOWN")}
+      onMouseDown={(param) => handleMouseDown(param) }
       onMouseUp={action("MOUSE_UP")}
       onChangeRegion={action("CHANGE_REGION", "region")}
       onUpdateRegions={action("UPDATE_REGIONS", "regions")}

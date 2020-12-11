@@ -118,6 +118,14 @@ export var MainLayout = function MainLayout(_ref2) {
       e.target.focus();
     }
   }, []);
+
+  function handleMouseDown(params) {
+    state.customMouseDown();
+    dispatch(_objectSpread({
+      type: "MOUSE_DOWN"
+    }, params));
+  }
+
   var canvas = /*#__PURE__*/React.createElement(ImageCanvas, Object.assign({}, settings, {
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
@@ -152,7 +160,9 @@ export var MainLayout = function MainLayout(_ref2) {
     customDeleteRegion: state.customDeleteRegion,
     onLinkResource: state.onLinkResource,
     onMouseMove: action("MOUSE_MOVE"),
-    onMouseDown: action("MOUSE_DOWN"),
+    onMouseDown: function onMouseDown(param) {
+      return handleMouseDown(param);
+    },
     onMouseUp: action("MOUSE_UP"),
     onChangeRegion: action("CHANGE_REGION", "region"),
     onUpdateRegions: action("UPDATE_REGIONS", "regions"),

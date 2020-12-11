@@ -46,6 +46,9 @@ export default (function () {
     customOpenRegion: function customOpenRegion(region_id) {
       return console.log(region_id, 'customOpenRegion');
     },
+    customMouseDown: function customMouseDown() {
+      return console.log('customMouseDown');
+    },
     customSelectRegion: function customSelectRegion(region) {
       return console.log(region, 'customSelectRegion');
     },
