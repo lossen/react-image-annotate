@@ -391,15 +391,15 @@ export const MainLayout = ({
           >
             {canvas}
           </Workspace>
-          <SettingsDialog
-            open={state.settingsOpen}
-            onClose={() =>
-              dispatch({
-                type: "HEADER_BUTTON_CLICKED",
-                buttonName: "Settings",
-              })
-            }
-          />
+          {/*<SettingsDialog*/}
+          {/*  open={state.settingsOpen}*/}
+          {/*  onClose={() =>*/}
+          {/*    dispatch({*/}
+          {/*      type: "HEADER_BUTTON_CLICKED",*/}
+          {/*      buttonName: "Settings",*/}
+          {/*    })*/}
+          {/*  }*/}
+          {/*/>*/}
         </HotkeyDiv>
       </FullScreen>
     </FullScreenContainer>

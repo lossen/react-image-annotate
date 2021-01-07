@@ -351,14 +351,6 @@ export var MainLayout = function MainLayout(_ref2) {
       history: state.history,
       onRestoreHistory: action("RESTORE_HISTORY")
     })].filter(Boolean)
-  }, canvas), /*#__PURE__*/React.createElement(SettingsDialog, {
-    open: state.settingsOpen,
-    onClose: function onClose() {
-      return dispatch({
-        type: "HEADER_BUTTON_CLICKED",
-        buttonName: "Settings"
-      });
-    }
-  }))));
+  }, canvas))));
 };
 export default MainLayout;
