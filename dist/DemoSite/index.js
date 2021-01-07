@@ -29,29 +29,23 @@ export default (function () {
       delete output["lastAction"];
       changeLastOutput(output);
       changeAnnotatorOpen(false);
-    },
-    customCloseRegion: function customCloseRegion(region) {
-      return 25;
-    },
-    customDeleteRegion: function customDeleteRegion(region) {
-      console.log(region, 'test customDeleteRegion');
-    },
+    } // customCloseRegion={(region) => {
+    //   return 25;
+    // }}
+    // customDeleteRegion={(region) => {
+    //   console.log(region,'test customDeleteRegion')
+    // }}
+    ,
     disableClasses: true,
     disableTags: true,
     disableRegionType: true,
     disableTopNav: true,
     onLinkResource: function onLinkResource(region_id) {
       return console.log(region_id, 'onLinkResource');
-    },
-    customOpenRegion: function customOpenRegion(region_id) {
-      return console.log(region_id, 'customOpenRegion');
-    },
-    customMouseDown: function customMouseDown() {
-      return console.log('customMouseDown');
-    },
-    customSelectRegion: function customSelectRegion(region) {
-      return console.log(region, 'customSelectRegion');
-    },
+    } // customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
+    // customMouseDown={() => console.log('customMouseDown')}
+    // customSelectRegion={(region) => console.log(region,'customSelectRegion')}
+    ,
     images: [{
       src: "https://images.unsplash.com/photo-1496905583330-eb54c7e5915a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
       name: "Image 1",

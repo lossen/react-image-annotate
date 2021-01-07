@@ -25,20 +25,20 @@ export default () => {
               changeLastOutput(output)
               changeAnnotatorOpen(false)
             }}
-            customCloseRegion={(region) => {
-              return 25;
-            }}
-            customDeleteRegion={(region) => {
-              console.log(region,'test customDeleteRegion')
-            }}
+            // customCloseRegion={(region) => {
+            //   return 25;
+            // }}
+            // customDeleteRegion={(region) => {
+            //   console.log(region,'test customDeleteRegion')
+            // }}
             disableClasses={true}
             disableTags={true}
             disableRegionType={true}
             disableTopNav={true}
             onLinkResource={(region_id) => console.log(region_id,'onLinkResource')}
-            customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
-            customMouseDown={() => console.log('customMouseDown')}
-            customSelectRegion={(region) => console.log(region,'customSelectRegion')}
+            // customOpenRegion={(region_id) => console.log(region_id,'customOpenRegion')}
+            // customMouseDown={() => console.log('customMouseDown')}
+            // customSelectRegion={(region) => console.log(region,'customSelectRegion')}
             images={[
               {
                 src: "https://images.unsplash.com/photo-1496905583330-eb54c7e5915a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",

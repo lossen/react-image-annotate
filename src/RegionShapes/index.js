@@ -9,7 +9,7 @@ function clamp(num, min, max) {
 
 const RegionComponents = {
   point: memo(({ region, iw, ih }) => (
-    <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+    <g key={region.id + 'g'} transform={`translate(${region.x * iw} ${region.y * ih})`}>
       <path
         d={"M0 8L8 0L0 -8L-8 0Z"}
         strokeWidth={2}
@@ -19,7 +19,7 @@ const RegionComponents = {
     </g>
   )),
   box: memo(({ region, iw, ih }) => (
-    <g transform={`translate(${region.x * iw} ${region.y * ih})`}>
+    <g key={region.id + 'g'} transform={`translate(${region.x * iw} ${region.y * ih})`}>
       <rect
         strokeWidth={2}
         x={0}
@@ -120,6 +120,7 @@ const RegionComponents = {
     return (
       <>
         <polygon
+            key={region.id + 'polygon'}
           points={firstSection
             .concat(region.candidatePoint ? [region.candidatePoint] : [])
             .concat(secondSection)
@@ -172,7 +173,7 @@ export const WrappedRegionList = memo(
         const Component = RegionComponents[r.type]
         return (
           <Component
-            key={r.regionId}
+            key={r.id + ' RegionComponents'}
             region={r}
             iw={iw}
             ih={ih}

@@ -12,6 +12,7 @@ var RegionComponents = {
         iw = _ref.iw,
         ih = _ref.ih;
     return /*#__PURE__*/React.createElement("g", {
+      key: region.id + 'g',
       transform: "translate(".concat(region.x * iw, " ").concat(region.y * ih, ")")
     }, /*#__PURE__*/React.createElement("path", {
       d: "M0 8L8 0L0 -8L-8 0Z",
@@ -25,6 +26,7 @@ var RegionComponents = {
         iw = _ref2.iw,
         ih = _ref2.ih;
     return /*#__PURE__*/React.createElement("g", {
+      key: region.id + 'g',
       transform: "translate(".concat(region.x * iw, " ").concat(region.y * ih, ")")
     }, /*#__PURE__*/React.createElement("rect", {
       strokeWidth: 2,
@@ -166,6 +168,7 @@ var RegionComponents = {
     secondSection.reverse();
     var lastPoint = points.slice(-1)[0];
     return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("polygon", {
+      key: region.id + 'polygon',
       points: firstSection.concat(region.candidatePoint ? [region.candidatePoint] : []).concat(secondSection).map(function (p) {
         return "".concat(p.x * iw, " ").concat(p.y * ih);
       }).join(" "),
@@ -213,7 +216,7 @@ export var WrappedRegionList = memo(function (_ref18) {
   }).map(function (r) {
     var Component = RegionComponents[r.type];
     return /*#__PURE__*/React.createElement(Component, {
-      key: r.regionId,
+      key: r.id + ' RegionComponents',
       region: r,
       iw: iw,
       ih: ih,
