@@ -120,7 +120,7 @@ export var MainLayout = function MainLayout(_ref2) {
   }, []);
 
   function handleMouseDown(params) {
-    state.customMouseDown();
+    state.customMouseDown && state.customMouseDown();
     dispatch(_objectSpread({
       type: "MOUSE_DOWN"
     }, params));

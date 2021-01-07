@@ -328,7 +328,7 @@ export const ImageCanvas = ({
 
   function handleSelect(region,onSelectRegion,customSelectRegion) {
     onSelectRegion(region)
-    customSelectRegion(region)
+    customSelectRegion && customSelectRegion(region)
   }
 
   const highlightedRegion = useMemo(() => {

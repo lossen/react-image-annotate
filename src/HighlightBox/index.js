@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 })
 
 function handleSelectRegion(onSelectRegion, r,customOpenRegion) {
-  customOpenRegion(r)
+  customOpenRegion && customOpenRegion(r)
   onSelectRegion(r)
 }
 

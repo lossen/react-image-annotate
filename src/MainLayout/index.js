@@ -114,7 +114,7 @@ export const MainLayout = ({
   }, [])
 
   function handleMouseDown(params) {
-    state.customMouseDown()
+    state.customMouseDown && state.customMouseDown()
     dispatch({ type: "MOUSE_DOWN", ...params })
   }
 

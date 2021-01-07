@@ -294,7 +294,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
 
   function handleSelect(region, onSelectRegion, customSelectRegion) {
     onSelectRegion(region);
-    customSelectRegion(region);
+    customSelectRegion && customSelectRegion(region);
   }
 
   var highlightedRegion = useMemo(function () {
