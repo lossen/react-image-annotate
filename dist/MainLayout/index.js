@@ -234,7 +234,7 @@ export var MainLayout = function MainLayout(_ref2) {
     onMouseOver: refocusOnMouseEvent,
     allowChanges: true,
     handlers: hotkeyHandlers,
-    className: classnames(classes.container, state.fullScreen && "Fullscreen")
+    className: classnames(classes.container, state.fullScreen && "Fullscreen", "bounding-box-container")
   }, /*#__PURE__*/React.createElement(Workspace, {
     allowFullscreen: true,
     iconDictionary: iconDictionary,

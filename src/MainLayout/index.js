@@ -245,7 +245,8 @@ export const MainLayout = ({
           handlers={hotkeyHandlers}
           className={classnames(
             classes.container,
-            state.fullScreen && "Fullscreen"
+            state.fullScreen && "Fullscreen",
+              "bounding-box-container"
           )}
         >
           <Workspace
