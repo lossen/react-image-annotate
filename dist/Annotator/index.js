@@ -14,6 +14,7 @@ export var Annotator = function Annotator(_ref) {
   var images = _ref.images,
       newRegions = _ref.newRegions,
       readOnly = _ref.readOnly,
+      hideName = _ref.hideName,
       customSelectRegion = _ref.customSelectRegion,
       allowedArea = _ref.allowedArea,
       _ref$selectedImage = _ref.selectedImage,
@@ -178,7 +179,8 @@ export var Annotator = function Annotator(_ref) {
     state: state,
     dispatch: dispatch,
     onRegionClassAdded: onRegionClassAdded,
-    readOnly: readOnly
+    readOnly: readOnly,
+    hideName: hideName
   }));
 };
 export default Annotator;

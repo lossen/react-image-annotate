@@ -111,6 +111,7 @@ export const ImageCanvas = ({
   regions,
   newRegions,
   readOnly,
+  hideName,
   imageSrc,
   videoSrc,
   videoTime,
@@ -426,6 +427,7 @@ export const ImageCanvas = ({
             disableTags={disableTags}
             disableRegionType={disableRegionType}
             readOnly={readOnly}
+            hideName={hideName}
           />
         </PreventScrollToParents>
       )}
@@ -450,6 +452,7 @@ export const ImageCanvas = ({
             disableTags={disableTags}
             disableRegionType={disableRegionType}
             readOnly={readOnly}
+            hideName={hideName}
           />
         </div>
       )}

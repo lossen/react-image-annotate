@@ -33,6 +33,7 @@ export const RegionTags = ({
     disableTags,
     customCloseRegion,
     readOnly,
+    hideName,
     customOpenRegion,
     customDeleteRegion,
     disableRegionType,
@@ -137,6 +138,7 @@ export const RegionTags = ({
               disableTags={disableTags}
               disableRegionType={disableRegionType}
               readOnly={readOnly}
+              hideName={hideName}
               onLinkResource={() => onLinkResource(region.id)}
             />
           </div>

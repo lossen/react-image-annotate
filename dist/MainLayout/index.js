@@ -54,7 +54,8 @@ export var MainLayout = function MainLayout(_ref2) {
       alwaysShowPrevButton = _ref2$alwaysShowPrevB === void 0 ? false : _ref2$alwaysShowPrevB,
       RegionEditLabel = _ref2.RegionEditLabel,
       onRegionClassAdded = _ref2.onRegionClassAdded,
-      readOnly = _ref2.readOnly;
+      readOnly = _ref2.readOnly,
+      hideName = _ref2.hideName;
   var classes = useStyles();
   var settings = useSettings();
   var fullScreenHandle = useFullScreenHandle();
@@ -130,6 +131,7 @@ export var MainLayout = function MainLayout(_ref2) {
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
     readOnly: readOnly,
+    hideName: hideName,
     showMask: state.showMask,
     fullImageSegmentationMode: state.fullImageSegmentationMode,
     autoSegmentationOptions: state.autoSegmentationOptions,

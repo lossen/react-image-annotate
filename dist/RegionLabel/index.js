@@ -53,7 +53,8 @@ export var RegionLabel = function RegionLabel(_ref) {
       customDeleteRegion = _ref.customDeleteRegion,
       customOpenRegion = _ref.customOpenRegion,
       regionName = _ref.regionName,
-      readOnly = _ref.readOnly;
+      readOnly = _ref.readOnly,
+      hideName = _ref.hideName;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
@@ -153,7 +154,7 @@ export var RegionLabel = function RegionLabel(_ref) {
         label: c
       };
     }))
-  })), /*#__PURE__*/React.createElement("input", {
+  })), !hideName && /*#__PURE__*/React.createElement("input", {
     className: classes.input,
     type: "text",
     autoFocus: true,

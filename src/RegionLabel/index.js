@@ -77,7 +77,8 @@ export const RegionLabel = ({
   customDeleteRegion,
   customOpenRegion,
   regionName,
-  readOnly
+  readOnly,
+  hideName
 }: Props) => {
   const classes = useStyles()
 
@@ -169,13 +170,13 @@ export const RegionLabel = ({
               />
             </div>
           )}
-          <input className={classes.input} type="text" autoFocus value={region.regionName} onChange={(newName) =>
+          {!hideName && <input className={classes.input} type="text" autoFocus value={region.regionName} onChange={(newName) =>
               onChange({
                 ...(region: any),
                 regionName: newName.target.value
               })}
                  readOnly={readOnly}
-          />
+          />}
           <div className={classes.regionPopupFooter}>
             <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
             disabled={readOnly}>

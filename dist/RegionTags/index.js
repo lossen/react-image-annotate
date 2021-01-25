@@ -39,6 +39,7 @@ export var RegionTags = function RegionTags(_ref) {
       disableTags = _ref.disableTags,
       customCloseRegion = _ref.customCloseRegion,
       readOnly = _ref.readOnly,
+      hideName = _ref.hideName,
       customOpenRegion = _ref.customOpenRegion,
       customDeleteRegion = _ref.customDeleteRegion,
       disableRegionType = _ref.disableRegionType,
@@ -149,6 +150,7 @@ export var RegionTags = function RegionTags(_ref) {
       disableTags: disableTags,
       disableRegionType: disableRegionType,
       readOnly: readOnly,
+      hideName: hideName,
       onLinkResource: function onLinkResource() {
         return _onLinkResource(region.id);
       }

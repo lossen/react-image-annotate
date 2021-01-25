@@ -78,6 +78,7 @@ export default () => {
               },
             ]}
             readOnly={false}
+            hideName={false}
           />
         </ErrorBoundaryDialog>
       ) : (

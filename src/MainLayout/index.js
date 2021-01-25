@@ -53,6 +53,7 @@ type Props = {
   alwaysShowNextButton?: boolean,
   alwaysShowPrevButton?: boolean,
   readOnly?: boolean,
+  hideName?: boolean,
   onRegionClassAdded: () => {},
 }
 
@@ -64,6 +65,7 @@ export const MainLayout = ({
   RegionEditLabel,
   onRegionClassAdded,
   readOnly,
+  hideName,
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -127,6 +129,7 @@ export const MainLayout = ({
       }
       key={state.selectedImage}
       readOnly={readOnly}
+      hideName={hideName}
       showMask={state.showMask}
       fullImageSegmentationMode={state.fullImageSegmentationMode}
       autoSegmentationOptions={state.autoSegmentationOptions}

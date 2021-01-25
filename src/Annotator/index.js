@@ -56,6 +56,7 @@ type Props = {
   keypointDefinitions: KeypointsDefinition,
   fullImageSegmentationMode?: boolean,
   readOnly?: boolean,
+  hideName?: boolean,
   disableRegionType?: boolean,
   disableTopNav?: boolean,
   autoSegmentationOptions?:
@@ -67,6 +68,7 @@ export const Annotator = ({
   images,
   newRegions,
   readOnly,
+  hideName,
   customSelectRegion,
   allowedArea,
   selectedImage = images && images.length > 0 ? 0 : undefined,
@@ -231,6 +233,7 @@ export const Annotator = ({
         dispatch={dispatch}
         onRegionClassAdded={onRegionClassAdded}
         readOnly={readOnly}
+        hideName={hideName}
       />
     </SettingsProvider>
   )
