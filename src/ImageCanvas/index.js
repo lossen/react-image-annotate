@@ -496,11 +496,13 @@ export const ImageCanvas = ({
               regions={regions}
             />
           )}
-          <canvas
-            style={{ opacity: 0.25 }}
-            className={classes.canvas}
-            ref={canvasEl}
-          />
+          <div className="canvas-wrapper">
+            <canvas
+                style={{ opacity: 0.25 }}
+                className={classes.canvas}
+                ref={canvasEl}
+            />
+          </div>
           <RegionShapes
             mat={mat}
             keypointDefinitions={keypointDefinitions}

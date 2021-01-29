@@ -429,13 +429,15 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     regionClsList: regionClsList,
     imageSrc: imageSrc,
     regions: regions
-  }), /*#__PURE__*/React.createElement("canvas", {
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "canvas-wrapper"
+  }, /*#__PURE__*/React.createElement("canvas", {
     style: {
       opacity: 0.25
     },
     className: classes.canvas,
     ref: canvasEl
-  }), /*#__PURE__*/React.createElement(RegionShapes, {
+  })), /*#__PURE__*/React.createElement(RegionShapes, {
     mat: mat,
     keypointDefinitions: keypointDefinitions,
     imagePosition: imagePosition,
