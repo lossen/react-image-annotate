@@ -54,7 +54,8 @@ export var RegionLabel = function RegionLabel(_ref) {
       customOpenRegion = _ref.customOpenRegion,
       regionName = _ref.regionName,
       readOnly = _ref.readOnly,
-      hideName = _ref.hideName;
+      hideName = _ref.hideName,
+      customPopup = _ref.customPopup;
   var classes = useStyles();
   return /*#__PURE__*/React.createElement(Paper, {
     onClick: function onClick() {
@@ -77,7 +78,7 @@ export var RegionLabel = function RegionLabel(_ref) {
       key: t,
       className: "tag"
     }, t);
-  }))) : /*#__PURE__*/React.createElement("div", {
+  }))) : customPopup ? _objectSpread({}, customPopup) : /*#__PURE__*/React.createElement("div", {
     style: {
       width: 250,
       padding: 16

@@ -31,6 +31,7 @@ export default () => {
             // customDeleteRegion={(region) => {
             //   console.log(region,'test customDeleteRegion')
             // }}
+            customPopup={<div>123</div>}
             disableClasses={true}
             disableTags={true}
             disableRegionType={true}

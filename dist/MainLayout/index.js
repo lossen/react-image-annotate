@@ -55,6 +55,7 @@ export var MainLayout = function MainLayout(_ref2) {
       RegionEditLabel = _ref2.RegionEditLabel,
       onRegionClassAdded = _ref2.onRegionClassAdded,
       readOnly = _ref2.readOnly,
+      customPopup = _ref2.customPopup,
       hideName = _ref2.hideName;
   var classes = useStyles();
   var settings = useSettings();
@@ -131,6 +132,7 @@ export var MainLayout = function MainLayout(_ref2) {
     showCrosshairs: settings.showCrosshairs && !["select", "pan", "zoom"].includes(state.selectedTool),
     key: state.selectedImage,
     readOnly: readOnly,
+    customPopup: customPopup,
     hideName: hideName,
     showMask: state.showMask,
     fullImageSegmentationMode: state.fullImageSegmentationMode,

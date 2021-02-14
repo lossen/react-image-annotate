@@ -43,6 +43,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
   var regions = _ref2.regions,
       newRegions = _ref2.newRegions,
       readOnly = _ref2.readOnly,
+      customPopup = _ref2.customPopup,
       hideName = _ref2.hideName,
       imageSrc = _ref2.imageSrc,
       videoSrc = _ref2.videoSrc,
@@ -375,6 +376,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     disableTags: disableTags,
     disableRegionType: disableRegionType,
     readOnly: readOnly,
+    customPopup: customPopup,
     hideName: hideName
   })), !showTags && highlightedRegion && /*#__PURE__*/React.createElement("div", {
     key: "topLeftTag",
@@ -398,6 +400,7 @@ export var ImageCanvas = function ImageCanvas(_ref2) {
     disableTags: disableTags,
     disableRegionType: disableRegionType,
     readOnly: readOnly,
+    customPopup: customPopup,
     hideName: hideName
   })), zoomWithPrimary && zoomBox !== null && /*#__PURE__*/React.createElement("div", {
     key: "zoomBox",

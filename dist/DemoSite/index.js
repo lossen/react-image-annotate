@@ -36,6 +36,7 @@ export default (function () {
     //   console.log(region,'test customDeleteRegion')
     // }}
     ,
+    customPopup: /*#__PURE__*/React.createElement("div", null, "123"),
     disableClasses: true,
     disableTags: true,
     disableRegionType: true,

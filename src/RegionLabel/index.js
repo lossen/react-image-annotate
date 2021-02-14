@@ -78,7 +78,8 @@ export const RegionLabel = ({
   customOpenRegion,
   regionName,
   readOnly,
-  hideName
+  hideName,
+  customPopup
 }: Props) => {
   const classes = useStyles()
 
@@ -111,93 +112,96 @@ export const RegionLabel = ({
           )}
         </div>
       ) : (
-        <div style={{ width: 250,padding: 16 }}>
-          <div style={{ display: "flex", flexDirection: "row" }}>
-           {!disableRegionType && <div
-              style={{
-                display: "flex",
-                backgroundColor: region.color || "#888",
-                color: "#fff",
-                padding: 4,
-                paddingLeft: 8,
-                paddingRight: 8,
-                borderRadius: 4,
-                fontWeight: "bold",
-                textShadow: "0px 0px 5px rgba(0,0,0,0.4)",
-              }}
-            >
-              {region.type}
-            </div>}
-            <div style={{ flexGrow: 1 }} />
-          </div>
-          {!disableClasses && (allowedClasses || []).length > 0 && (
-            <div style={{ marginTop: 6 }}>
-              <CreatableSelect
-                placeholder="Classification"
-                onChange={(o, actionMeta) => {
-                  if (actionMeta.action == "create-option") {
-                    onRegionClassAdded(o.value)
-                  }
-                  return onChange({
-                    ...(region: any),
-                    cls: o.value,
-                  })
-                }}
-                value={
-                  region.cls ? { label: region.cls, value: region.cls } : null
-                }
-                options={asMutable(
-                  allowedClasses.map((c) => ({ value: c, label: c }))
-                )}
-              />
-            </div>
-          )}
-          {!disableTags && (allowedTags || []).length > 0 && (
-            <div style={{ marginTop: 4 }}>
-              <Select
-                onChange={(newTags) =>
-                  onChange({
-                    ...(region: any),
-                    tags: newTags.map((t) => t.value),
-                  })
-                }
-                placeholder="Tags"
-                value={(region.tags || []).map((c) => ({ label: c, value: c }))}
-                isMulti
-                options={asMutable(
-                  allowedTags.map((c) => ({ value: c, label: c }))
-                )}
-              />
-            </div>
-          )}
-          {!hideName && <input className={classes.input} type="text" autoFocus value={region.regionName} onChange={(newName) =>
-              onChange({
-                ...(region: any),
-                regionName: newName.target.value
-              })}
-                 readOnly={readOnly}
-          />}
-          <div className={classes.regionPopupFooter}>
-            <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
-            disabled={readOnly}>
-              <ReactSVG src={DeleteIcon}/>
-            </button>
-            {onLinkResource && <button className={classes.btnSmall} onClick={onLinkResource} disabled={readOnly}>
-              <ReactSVG src={LinkIcon}/>
-            </button>}
-            {onClose && (
-                <button
-                    className={classes.buttonSubmit}
-                    onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions)}
-                    disabled={readOnly}
-                >
-                  Save
-                </button>
-            )}
-          </div>
+          customPopup ? {...customPopup} :
+                <div style={{ width: 250,padding: 16 }}>
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    {!disableRegionType && <div
+                        style={{
+                          display: "flex",
+                          backgroundColor: region.color || "#888",
+                          color: "#fff",
+                          padding: 4,
+                          paddingLeft: 8,
+                          paddingRight: 8,
+                          borderRadius: 4,
+                          fontWeight: "bold",
+                          textShadow: "0px 0px 5px rgba(0,0,0,0.4)",
+                        }}
+                    >
+                      {region.type}
+                    </div>}
+                    <div style={{ flexGrow: 1 }} />
+                  </div>
+                  {!disableClasses && (allowedClasses || []).length > 0 && (
+                      <div style={{ marginTop: 6 }}>
+                        <CreatableSelect
+                            placeholder="Classification"
+                            onChange={(o, actionMeta) => {
+                              if (actionMeta.action == "create-option") {
+                                onRegionClassAdded(o.value)
+                              }
+                              return onChange({
+                                ...(region: any),
+                                cls: o.value,
+                              })
+                            }}
+                            value={
+                              region.cls ? { label: region.cls, value: region.cls } : null
+                            }
+                            options={asMutable(
+                                allowedClasses.map((c) => ({ value: c, label: c }))
+                            )}
+                        />
+                      </div>
+                  )}
+                  {!disableTags && (allowedTags || []).length > 0 && (
+                      <div style={{ marginTop: 4 }}>
+                        <Select
+                            onChange={(newTags) =>
+                                onChange({
+                                  ...(region: any),
+                                  tags: newTags.map((t) => t.value),
+                                })
+                            }
+                            placeholder="Tags"
+                            value={(region.tags || []).map((c) => ({ label: c, value: c }))}
+                            isMulti
+                            options={asMutable(
+                                allowedTags.map((c) => ({ value: c, label: c }))
+                            )}
+                        />
+                      </div>
+                  )}
+                  {!hideName && <input className={classes.input} type="text" autoFocus value={region.regionName} onChange={(newName) =>
+                      onChange({
+                        ...(region: any),
+                        regionName: newName.target.value
+                      })}
+                                       readOnly={readOnly}
+                  />}
+                  <div className={classes.regionPopupFooter}>
+                    <button className={classes.btnSmall} onClick={() => handleDeleteRegionEditor(onDelete,region,customDeleteRegion)}
+                            disabled={readOnly}>
+                      <ReactSVG src={DeleteIcon}/>
+                    </button>
+                    {onLinkResource && <button className={classes.btnSmall} onClick={onLinkResource} disabled={readOnly}>
+                      <ReactSVG src={LinkIcon}/>
+                    </button>}
+                    {onClose && (
+                        <button
+                            className={classes.buttonSubmit}
+                            onClick={() => handleCloseRegionEditor(onClose,region,customCloseRegion,onUpdateRegions,newRegions)}
+                            disabled={readOnly}
+                        >
+                          Save
+                        </button>
+                    )}
+                  </div>
 
 
-        </div>
+                </div>
+
+
       )}
     </Paper>
   )

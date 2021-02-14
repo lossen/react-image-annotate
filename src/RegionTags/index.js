@@ -37,7 +37,8 @@ export const RegionTags = ({
     customOpenRegion,
     customDeleteRegion,
     disableRegionType,
-    onLinkResource
+    onLinkResource,
+    customPopup
 }) => {
   const RegionLabel =
     RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel
@@ -138,6 +139,7 @@ export const RegionTags = ({
               disableTags={disableTags}
               disableRegionType={disableRegionType}
               readOnly={readOnly}
+              customPopup={customPopup}
               hideName={hideName}
               onLinkResource={() => onLinkResource(region.id)}
             />
