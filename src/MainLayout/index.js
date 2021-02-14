@@ -65,7 +65,7 @@ export const MainLayout = ({
   RegionEditLabel,
   onRegionClassAdded,
   readOnly,
-  customPopup,
+  CustomPopup,
   hideName,
 }: Props) => {
   const classes = useStyles()
@@ -130,7 +130,7 @@ export const MainLayout = ({
       }
       key={state.selectedImage}
       readOnly={readOnly}
-      customPopup={customPopup}
+      CustomPopup={CustomPopup}
       hideName={hideName}
       showMask={state.showMask}
       fullImageSegmentationMode={state.fullImageSegmentationMode}

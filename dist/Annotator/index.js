@@ -14,7 +14,7 @@ export var Annotator = function Annotator(_ref) {
   var images = _ref.images,
       newRegions = _ref.newRegions,
       readOnly = _ref.readOnly,
-      customPopup = _ref.customPopup,
+      CustomPopup = _ref.CustomPopup,
       hideName = _ref.hideName,
       customSelectRegion = _ref.customSelectRegion,
       allowedArea = _ref.allowedArea,
@@ -181,7 +181,7 @@ export var Annotator = function Annotator(_ref) {
     dispatch: dispatch,
     onRegionClassAdded: onRegionClassAdded,
     readOnly: readOnly,
-    customPopup: customPopup,
+    CustomPopup: CustomPopup,
     hideName: hideName
   }));
 };

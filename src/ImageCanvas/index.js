@@ -111,7 +111,7 @@ export const ImageCanvas = ({
   regions,
   newRegions,
   readOnly,
-  customPopup,
+  CustomPopup,
   hideName,
   imageSrc,
   videoSrc,
@@ -428,7 +428,7 @@ export const ImageCanvas = ({
             disableTags={disableTags}
             disableRegionType={disableRegionType}
             readOnly={readOnly}
-            customPopup={customPopup}
+            CustomPopup={CustomPopup}
             hideName={hideName}
           />
         </PreventScrollToParents>
@@ -454,7 +454,7 @@ export const ImageCanvas = ({
             disableTags={disableTags}
             disableRegionType={disableRegionType}
             readOnly={readOnly}
-            customPopup={customPopup}
+            CustomPopup={CustomPopup}
             hideName={hideName}
           />
         </div>

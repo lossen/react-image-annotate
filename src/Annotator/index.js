@@ -68,7 +68,7 @@ export const Annotator = ({
   images,
   newRegions,
   readOnly,
-  customPopup,
+  CustomPopup,
   hideName,
   customSelectRegion,
   allowedArea,
@@ -234,7 +234,7 @@ export const Annotator = ({
         dispatch={dispatch}
         onRegionClassAdded={onRegionClassAdded}
         readOnly={readOnly}
-        customPopup={customPopup}
+        CustomPopup={CustomPopup}
         hideName={hideName}
       />
     </SettingsProvider>

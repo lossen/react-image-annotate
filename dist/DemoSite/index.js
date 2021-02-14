@@ -4,6 +4,12 @@ import ReactDOM from "react-dom";
 import Editor, { examples } from "./Editor";
 import Annotator from "../Annotator";
 import ErrorBoundaryDialog from "./ErrorBoundaryDialog.js";
+
+function CustomPopup(props) {
+  console.log(props, 'props');
+  return /*#__PURE__*/React.createElement("div", null, "123");
+}
+
 export default (function () {
   var _useState = useState(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -36,7 +42,7 @@ export default (function () {
     //   console.log(region,'test customDeleteRegion')
     // }}
     ,
-    customPopup: /*#__PURE__*/React.createElement("div", null, "123"),
+    CustomPopup: CustomPopup,
     disableClasses: true,
     disableTags: true,
     disableRegionType: true,

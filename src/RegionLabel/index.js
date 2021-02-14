@@ -79,7 +79,7 @@ export const RegionLabel = ({
   regionName,
   readOnly,
   hideName,
-  customPopup
+  CustomPopup
 }: Props) => {
   const classes = useStyles()
 
@@ -112,7 +112,7 @@ export const RegionLabel = ({
           )}
         </div>
       ) : (
-          customPopup ? {...customPopup} :
+          CustomPopup ? <CustomPopup region={region}/> :
                 <div style={{ width: 250,padding: 16 }}>
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     {!disableRegionType && <div

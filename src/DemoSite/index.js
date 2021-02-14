@@ -5,6 +5,11 @@ import Editor, { examples } from "./Editor"
 import Annotator from "../Annotator"
 import ErrorBoundaryDialog from "./ErrorBoundaryDialog.js"
 
+function CustomPopup(props) {
+  console.log(props,'props')
+  return(<div>123</div>)
+}
+
 export default () => {
   const [annotatorOpen, changeAnnotatorOpen] = useState(false)
   const [annotatorProps, changeAnnotatorProps] = useState(examples["Custom"]())
@@ -31,7 +36,7 @@ export default () => {
             // customDeleteRegion={(region) => {
             //   console.log(region,'test customDeleteRegion')
             // }}
-            customPopup={<div>123</div>}
+            CustomPopup={CustomPopup}
             disableClasses={true}
             disableTags={true}
             disableRegionType={true}

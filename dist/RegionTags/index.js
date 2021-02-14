@@ -44,7 +44,7 @@ export var RegionTags = function RegionTags(_ref) {
       customDeleteRegion = _ref.customDeleteRegion,
       disableRegionType = _ref.disableRegionType,
       _onLinkResource = _ref.onLinkResource,
-      customPopup = _ref.customPopup;
+      CustomPopup = _ref.CustomPopup;
   var RegionLabel = RegionEditLabel != null ? RegionEditLabel : DefaultRegionLabel;
   return regions.filter(function (r) {
     return r.visible || r.visible === undefined;
@@ -151,7 +151,7 @@ export var RegionTags = function RegionTags(_ref) {
       disableTags: disableTags,
       disableRegionType: disableRegionType,
       readOnly: readOnly,
-      customPopup: customPopup,
+      CustomPopup: CustomPopup,
       hideName: hideName,
       onLinkResource: function onLinkResource() {
         return _onLinkResource(region.id);
