@@ -171,6 +171,10 @@ export var Annotator = function Annotator(_ref) {
       type: "UPDATE_READ_ONLY",
       readOnly: readOnly
     });
+    dispatchToReducer({
+      type: "SELECT_TOOL",
+      selectedTool: 'select'
+    });
   }, [readOnly]);
   if (!images && !videoSrc) return 'Missing required prop "images" or "videoSrc"';
   return /*#__PURE__*/React.createElement(SettingsProvider, null, /*#__PURE__*/React.createElement(MainLayout, {

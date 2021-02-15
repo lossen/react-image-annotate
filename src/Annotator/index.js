@@ -218,6 +218,10 @@ export const Annotator = ({
       type: "UPDATE_READ_ONLY",
       readOnly: readOnly,
     })
+    dispatchToReducer({
+      type: "SELECT_TOOL",
+      selectedTool: 'select',
+    })
   }, [readOnly])
 
   if (!images && !videoSrc)

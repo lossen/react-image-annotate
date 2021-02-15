@@ -26,7 +26,16 @@ export default (function () {
       lastOutput = _useState6[0],
       changeLastOutput = _useState6[1];
 
-  return /*#__PURE__*/React.createElement("div", null, annotatorOpen ? /*#__PURE__*/React.createElement(ErrorBoundaryDialog, {
+  var _useState7 = useState(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      readOnly = _useState8[0],
+      setReadOnly = _useState8[1];
+
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return setReadOnly(!readOnly);
+    }
+  }, "readOnly switch"), annotatorOpen ? /*#__PURE__*/React.createElement(ErrorBoundaryDialog, {
     onClose: function onClose() {
       changeAnnotatorOpen(false);
     }
@@ -84,7 +93,7 @@ export default (function () {
       color: "#00f",
       id: 333
     }],
-    readOnly: false,
+    readOnly: readOnly,
     hideName: false
   }))) : /*#__PURE__*/React.createElement(Editor, {
     lastOutput: lastOutput,

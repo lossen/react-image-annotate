@@ -14,9 +14,11 @@ export default () => {
   const [annotatorOpen, changeAnnotatorOpen] = useState(false)
   const [annotatorProps, changeAnnotatorProps] = useState(examples["Custom"]())
   const [lastOutput, changeLastOutput] = useState()
+  const [readOnly, setReadOnly] = useState(false)
 
   return (
     <div>
+      <button onClick={() => setReadOnly(!readOnly)}>readOnly switch</button>
       {annotatorOpen ? (
         <ErrorBoundaryDialog
           onClose={() => {
@@ -83,7 +85,7 @@ export default () => {
                 id: 333,
               },
             ]}
-            readOnly={false}
+            readOnly={readOnly}
             hideName={false}
           />
         </ErrorBoundaryDialog>
