@@ -79,7 +79,9 @@ export var RegionLabel = function RegionLabel(_ref) {
       className: "tag"
     }, t);
   }))) : CustomPopup ? /*#__PURE__*/React.createElement(CustomPopup, {
-    region: region
+    region: region,
+    onDelete: onDelete,
+    onChange: _onChange
   }) : /*#__PURE__*/React.createElement("div", {
     style: {
       width: 250,

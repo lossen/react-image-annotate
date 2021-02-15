@@ -112,7 +112,7 @@ export const RegionLabel = ({
           )}
         </div>
       ) : (
-          CustomPopup ? <CustomPopup region={region}/> :
+          CustomPopup ? <CustomPopup region={region} onDelete={onDelete} onChange={onChange}/> :
                 <div style={{ width: 250,padding: 16 }}>
                   <div style={{ display: "flex", flexDirection: "row" }}>
                     {!disableRegionType && <div
