@@ -6,7 +6,6 @@ import Annotator from "../Annotator";
 import ErrorBoundaryDialog from "./ErrorBoundaryDialog.js";
 
 function CustomPopup(props) {
-  console.log(props, 'props');
   return /*#__PURE__*/React.createElement("div", null, "123");
 }
 
@@ -55,6 +54,9 @@ export default (function () {
     disableClasses: true,
     disableTags: true,
     disableRegionType: true,
+    customAddRegionClick: function customAddRegionClick() {
+      return console.log('custom add region click');
+    },
     disableTopNav: true,
     onLinkResource: function onLinkResource(region_id) {
       return console.log(region_id, 'onLinkResource');

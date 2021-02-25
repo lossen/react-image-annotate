@@ -21,6 +21,7 @@ import historyHandler from "./reducers/history-handler.js"
 
 import useEventCallback from "use-event-callback"
 import makeImmutable, { without } from "seamless-immutable"
+import {func} from "prop-types";
 
 type Props = {
   taskDescription?: string,
@@ -58,6 +59,7 @@ type Props = {
   readOnly?: boolean,
   hideName?: boolean,
   disableRegionType?: boolean,
+  customAddRegionClick?: Function,
   disableTopNav?: boolean,
   autoSegmentationOptions?:
     | {| type: "simple" |}
@@ -86,6 +88,7 @@ export const Annotator = ({
   ],
   disableNavs = true,
   disableRegionType = true,
+  customAddRegionClick,
   disableTopNav = true,
   disableClasses = true,
   disableTags = true,
@@ -153,6 +156,7 @@ export const Annotator = ({
       disableClasses,
       disableTags,
       disableRegionType,
+      customAddRegionClick,
       disableTopNav,
       customCloseRegion,
       customSelectRegion,

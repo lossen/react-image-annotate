@@ -213,6 +213,7 @@ export const MainLayout = ({
       fullScreenHandle.exit()
       dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
     }else if(item.name === "create-box") {
+      state.customAddRegionClick()
       if(!readOnly) dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
     }else dispatch({ type: "SELECT_TOOL", selectedTool: item.name })
   })
