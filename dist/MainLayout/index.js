@@ -200,7 +200,7 @@ export var MainLayout = function MainLayout(_ref2) {
         buttonName: item.name
       });
     } else if (item.name === "create-box") {
-      state.customAddRegionClick();
+      state.customAddRegionClick && state.customAddRegionClick();
       if (!readOnly) dispatch({
         type: "SELECT_TOOL",
         selectedTool: item.name
